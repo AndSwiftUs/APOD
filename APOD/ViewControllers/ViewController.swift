@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     private func setUpNasaLogoImage() {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "nasa-logo.svg")
+        imageView.image = UIImage(named: "nasa-logo")
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         
         view.addSubview(imageLabel)

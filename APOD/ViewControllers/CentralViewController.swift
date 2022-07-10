@@ -2,23 +2,29 @@ import UIKit
 
 class CentralViewController: UIViewController {
     
-    private let scrollingView = UIScrollView()
+    private let imageZoomableScrollingView = UIScrollView()
     private let imageView = UIImageView()
-    private let imageLabel = UILabel()
+    private let imageNameLabel = UILabel()
+    private let imageTextScrollingView = UIScrollView()
+    private let imageTextLabel = UILabel()
     private let networkingManager = NetworkingManager()
     
     private var currentAPOD:APOD? = nil {
         didSet {
             DispatchQueue.main.async {
                 guard let title = self.currentAPOD?.title,
-                      let url = self.currentAPOD?.url,
+//                      let url = self.currentAPOD?.url,
                       let explanation = self.currentAPOD?.explanation
                 else { return }
-                        
-                let copyright = (self.currentAPOD?.copyright != nil) ? "Copyright: \(String(describing: self.currentAPOD?.copyright))" : ""
                 
-                self.imageLabel.text = "\(title)\n\(copyright)\n\(url)\n\(explanation)"
+                self.imageNameLabel.text = "\(title)"
                 
+                if let copyright = self.currentAPOD?.copyright {
+                    self.imageTextLabel.text = "Copyright: \(copyright)\n\n\(explanation)"
+                } else {
+                    self.imageTextLabel.text = "\(explanation)"
+                }
+                                
                 self.fetchImageFromCurrentInstance()
                 
             }
@@ -73,7 +79,7 @@ class CentralViewController: UIViewController {
             preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .default) {_ in
-            self.imageLabel.text = "\nTry pull to refresh"
+            self.imageNameLabel.text = "\nTry pull to refresh"
             return
         }
         alert.addAction(okAction)
@@ -83,49 +89,62 @@ class CentralViewController: UIViewController {
     @objc func callPullToRefresh() {
         CAVProgressHud.sharedInstance.show(withTitle: "Loading data from NASA...")
         DispatchQueue.main.asyncAfter(deadline: .now() + 3 ){
-            self.scrollingView.refreshControl?.endRefreshing()
+            self.imageTextScrollingView.refreshControl?.endRefreshing()
             self.fetchInstanceOfTheDayWithNetworkingManager()
             
         }
-        if scrollingView.refreshControl?.isRefreshing == true {
-            self.imageLabel.text = "\nRefreshing...\n"
+        if imageTextScrollingView.refreshControl?.isRefreshing == true {
+            self.imageNameLabel.text = "\nRefreshing...\n"
         }
     }
     
     private func setUpNasaLogoImage() {
         
-        view.addSubview(scrollingView)
-        scrollingView.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollingView.refreshControl = UIRefreshControl()
-        scrollingView.refreshControl?.addTarget(self,
-                                                action: #selector(callPullToRefresh),
-                                                for: .valueChanged)
-        
-        scrollingView.addSubview(imageView)
+        view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         
-        scrollingView.addSubview(imageLabel)
-        imageLabel.translatesAutoresizingMaskIntoConstraints = false
-        imageLabel.textAlignment = .center
-        imageLabel.numberOfLines = 25
-        imageLabel.text = "Astronomy Picture Of the Day\nbased on public NASA API\nby Andrew, 2022"
+        view.addSubview(imageNameLabel)
+        imageNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        imageNameLabel.textAlignment = .center
+        imageNameLabel.numberOfLines = 3
+        imageNameLabel.text = "Astronomy Picture Of the Day\nbased on public NASA API\nby Andrew, 2022"
+
+        view.addSubview(imageTextScrollingView)
+        imageTextScrollingView.translatesAutoresizingMaskIntoConstraints = false
         
+        imageTextScrollingView.refreshControl = UIRefreshControl()
+        imageTextScrollingView.refreshControl?.addTarget(self,
+                                                action: #selector(callPullToRefresh),
+                                                for: .valueChanged)
+        
+        imageTextScrollingView.addSubview(imageTextLabel)
+        imageTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        imageTextLabel.textAlignment = .center
+        imageTextLabel.numberOfLines = 100
+        imageTextLabel.text = "About image..."
+                
         NSLayoutConstraint.activate([
-            scrollingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+           
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 6/10),
             
-            imageView.topAnchor.constraint(equalTo: scrollingView.topAnchor),
-            imageView.centerXAnchor.constraint(equalTo: scrollingView.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: scrollingView.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: scrollingView.heightAnchor, multiplier: 6/10),
+            imageNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+            imageNameLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageNameLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 2/3),
             
-            imageLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-            imageLabel.centerXAnchor.constraint(equalTo: scrollingView.centerXAnchor),
-            imageLabel.widthAnchor.constraint(equalTo: scrollingView.widthAnchor, multiplier: 2/3),
+            imageTextScrollingView.topAnchor.constraint(equalTo: imageNameLabel.bottomAnchor),
+            imageTextScrollingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            imageTextScrollingView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageTextScrollingView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            
+            imageTextLabel.topAnchor.constraint(equalTo: imageTextScrollingView.topAnchor),
+            imageTextLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 9/10),
+            imageTextLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageTextLabel.bottomAnchor.constraint(equalTo: imageTextScrollingView.bottomAnchor),
+ 
         ])
     }
 }

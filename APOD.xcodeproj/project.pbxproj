@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4952C7AA287B470D002C5182 /* AboutSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */; };
 		49D0D9B62843AA0B00664977 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B02843AA0B00664977 /* HTTPMethod.swift */; };
 		49D0D9B72843AA0B00664977 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B12843AA0B00664977 /* API.swift */; };
 		49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B22843AA0B00664977 /* HTTPScheme.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSwiftUIView.swift; sourceTree = "<group>"; };
 		49D0D9B02843AA0B00664977 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		49D0D9B12843AA0B00664977 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		49D0D9B22843AA0B00664977 /* HTTPScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPScheme.swift; sourceTree = "<group>"; };
@@ -69,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4952C7AB287B6361002C5182 /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DC68B2282842A2D00035C887 /* AboutViewController.swift */,
+				4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */,
+			);
+			path = AboutViewController;
+			sourceTree = "<group>";
+		};
 		49D0D9BC2843AA2A00664977 /* NetworkingManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +136,7 @@
 				DC68B2222842A2300035C887 /* SearchViewController.swift */,
 				DC68B2242842A26E0035C887 /* FavouritesViewController.swift */,
 				DC68B2262842A2970035C887 /* CentralViewController.swift */,
-				DC68B2282842A2D00035C887 /* AboutViewController.swift */,
+				4952C7AB287B6361002C5182 /* AboutViewController */,
 				DC68B22A2842A3050035C887 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -208,6 +219,7 @@
 				49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */,
 				DC68B20F284281440035C887 /* AppDelegate.swift in Sources */,
 				DC68B211284281440035C887 /* SceneDelegate.swift in Sources */,
+				4952C7AA287B470D002C5182 /* AboutSwiftUIView.swift in Sources */,
 				DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */,
 				49D0D9C62844059400664977 /* Extensions.swift in Sources */,
 				49D0D9C22843C7BD00664977 /* APOD.swift in Sources */,

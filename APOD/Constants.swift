@@ -22,7 +22,7 @@ struct AppConstants {
         }
         
         struct CentralVC {
-            static let title = "Picture of the day"
+            static let title = "APOD"
             static let image = "person"
             static let bgColor = UIColor.systemGray6
             static let largeTitles = false
