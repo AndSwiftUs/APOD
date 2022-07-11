@@ -91,7 +91,6 @@ class CentralViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3 ){
             self.imageTextScrollingView.refreshControl?.endRefreshing()
             self.fetchInstanceOfTheDayWithNetworkingManager()
-            
         }
         if imageTextScrollingView.refreshControl?.isRefreshing == true {
             self.imageNameLabel.text = "\nRefreshing...\n"

@@ -50,7 +50,9 @@ class ViewController: UIViewController {
         }
         
         // делаем текущим 3й вью
-        tabBarVC.selectedIndex = 2
+//        tabBarVC.selectedIndex = 2
+        
+        tabBarVC.selectedIndex = 0
         tabBarVC.modalPresentationStyle = .fullScreen
         
         present(tabBarVC, animated: false)

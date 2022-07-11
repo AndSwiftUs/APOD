@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4952C7AA287B470D002C5182 /* AboutSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */; };
+		4952C7B0287C4A83002C5182 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7AF287C4A83002C5182 /* SearchView.swift */; };
+		4952C7B2287C4AA1002C5182 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */; };
+		4952C7B4287C4DB9002C5182 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B3287C4DB9002C5182 /* ActivityIndicatorView.swift */; };
+		4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */; };
+		4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */; };
+		4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */; };
 		49D0D9B62843AA0B00664977 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B02843AA0B00664977 /* HTTPMethod.swift */; };
 		49D0D9B72843AA0B00664977 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B12843AA0B00664977 /* API.swift */; };
 		49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B22843AA0B00664977 /* HTTPScheme.swift */; };
 		49D0D9B92843AA0B00664977 /* NasaJSONsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B32843AA0B00664977 /* NasaJSONsAPI.swift */; };
 		49D0D9BA2843AA0B00664977 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B42843AA0B00664977 /* NetworkingError.swift */; };
 		49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B52843AA0B00664977 /* NetworkingManager.swift */; };
-		49D0D9BE2843B22500664977 /* CAVProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9BD2843B22500664977 /* CAVProgressHud.swift */; };
 		49D0D9C02843C3C300664977 /* NasaInstanceOfTheDayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */; };
 		49D0D9C22843C7BD00664977 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C12843C7BD00664977 /* APOD.swift */; };
 		49D0D9C62844059400664977 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C52844059400664977 /* Extensions.swift */; };
@@ -34,13 +39,18 @@
 
 /* Begin PBXFileReference section */
 		4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSwiftUIView.swift; sourceTree = "<group>"; };
+		4952C7AF287C4A83002C5182 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		4952C7B3287C4DB9002C5182 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVProgressHud.swift; sourceTree = "<group>"; };
+		4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCellViewModel.swift; sourceTree = "<group>"; };
+		4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCollectionCell.swift; sourceTree = "<group>"; };
 		49D0D9B02843AA0B00664977 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		49D0D9B12843AA0B00664977 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		49D0D9B22843AA0B00664977 /* HTTPScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPScheme.swift; sourceTree = "<group>"; };
 		49D0D9B32843AA0B00664977 /* NasaJSONsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaJSONsAPI.swift; sourceTree = "<group>"; };
 		49D0D9B42843AA0B00664977 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		49D0D9B52843AA0B00664977 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		49D0D9BD2843B22500664977 /* CAVProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAVProgressHud.swift; sourceTree = "<group>"; };
 		49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaInstanceOfTheDayAPI.swift; sourceTree = "<group>"; };
 		49D0D9C12843C7BD00664977 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 		49D0D9C52844059400664977 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -78,6 +88,26 @@
 				4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */,
 			);
 			path = AboutViewController;
+			sourceTree = "<group>";
+		};
+		4952C7AE287C4828002C5182 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4952C7BB287C6041002C5182 /* Cell */,
+				4952C7AF287C4A83002C5182 /* SearchView.swift */,
+				DC68B2222842A2300035C887 /* SearchViewController.swift */,
+				4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		4952C7BB287C6041002C5182 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */,
+				4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		49D0D9BC2843AA2A00664977 /* NetworkingManager */ = {
@@ -120,7 +150,8 @@
 				DC68B217284281460035C887 /* Assets.xcassets */,
 				DC68B219284281460035C887 /* LaunchScreen.storyboard */,
 				DC68B21C284281460035C887 /* Info.plist */,
-				49D0D9BD2843B22500664977 /* CAVProgressHud.swift */,
+				4952C7B3287C4DB9002C5182 /* ActivityIndicatorView.swift */,
+				4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */,
 				49D0D9C52844059400664977 /* Extensions.swift */,
 				DC68B22D2842A3660035C887 /* Constants.swift */,
 				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
@@ -133,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DC68B212284281440035C887 /* ViewController.swift */,
-				DC68B2222842A2300035C887 /* SearchViewController.swift */,
+				4952C7AE287C4828002C5182 /* SearchViewController */,
 				DC68B2242842A26E0035C887 /* FavouritesViewController.swift */,
 				DC68B2262842A2970035C887 /* CentralViewController.swift */,
 				4952C7AB287B6361002C5182 /* AboutViewController */,
@@ -213,8 +244,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4952C7B2287C4AA1002C5182 /* SearchViewModel.swift in Sources */,
 				49D0D9B92843AA0B00664977 /* NasaJSONsAPI.swift in Sources */,
 				49D0D9B72843AA0B00664977 /* API.swift in Sources */,
+				4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */,
 				DC68B213284281440035C887 /* ViewController.swift in Sources */,
 				49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */,
 				DC68B20F284281440035C887 /* AppDelegate.swift in Sources */,
@@ -223,16 +256,19 @@
 				DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */,
 				49D0D9C62844059400664977 /* Extensions.swift in Sources */,
 				49D0D9C22843C7BD00664977 /* APOD.swift in Sources */,
+				4952C7B0287C4A83002C5182 /* SearchView.swift in Sources */,
 				DC68B22B2842A3050035C887 /* SettingsViewController.swift in Sources */,
+				4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */,
+				4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */,
 				DC68B2252842A26E0035C887 /* FavouritesViewController.swift in Sources */,
 				DC68B2272842A2970035C887 /* CentralViewController.swift in Sources */,
 				49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */,
 				49D0D9BA2843AA0B00664977 /* NetworkingError.swift in Sources */,
+				4952C7B4287C4DB9002C5182 /* ActivityIndicatorView.swift in Sources */,
 				DC68B2232842A2300035C887 /* SearchViewController.swift in Sources */,
 				49D0D9C02843C3C300664977 /* NasaInstanceOfTheDayAPI.swift in Sources */,
 				49D0D9B62843AA0B00664977 /* HTTPMethod.swift in Sources */,
 				DC68B22E2842A3660035C887 /* Constants.swift in Sources */,
-				49D0D9BE2843B22500664977 /* CAVProgressHud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

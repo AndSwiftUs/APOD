@@ -1,6 +1,6 @@
 import UIKit
 
-public struct APOD: Codable {
+public struct APOD: Codable, Hashable {
     var copyright: String?
     var date: String
     var explanation: String
