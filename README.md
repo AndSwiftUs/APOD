@@ -1,3 +1,3 @@
 # APOD
 
-My project
+My project for TeachMeSkills
