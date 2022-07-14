@@ -10,6 +10,7 @@ final class APODsCollectionCell: UICollectionViewCell {
     
     lazy var apodDateLabel = UILabel()
     lazy var apodTitleLabel = UILabel()
+    lazy var apodImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -23,7 +24,7 @@ final class APODsCollectionCell: UICollectionViewCell {
     }
     
     private func addSubiews() {
-        let subviews = [apodDateLabel, apodTitleLabel]
+        let subviews = [apodDateLabel, apodTitleLabel, apodImageView]
         
         subviews.forEach {
             contentView.addSubview($0)
@@ -33,23 +34,41 @@ final class APODsCollectionCell: UICollectionViewCell {
     
     private func setUpConstraints() {
         
-        apodDateLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        apodDateLabel.font  = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        apodDateLabel.textAlignment = .center
+        
         apodTitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        apodTitleLabel.numberOfLines = 2
         
         NSLayoutConstraint.activate([
-            apodDateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0),
-            apodDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0),
-            apodDateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0),
             
-            apodTitleLabel.centerYAnchor.constraint(equalTo: apodDateLabel.centerYAnchor),
-            apodTitleLabel.leadingAnchor.constraint(equalTo: apodDateLabel.trailingAnchor, constant: 10.0),
-            apodTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.0),
-            apodTitleLabel.heightAnchor.constraint(equalTo: apodDateLabel.heightAnchor)
+            apodImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            apodImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            apodImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
+            apodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            apodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            apodDateLabel.topAnchor.constraint(equalTo: apodImageView.bottomAnchor, constant: 4),
+            apodDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            apodDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            apodTitleLabel.topAnchor.constraint(equalTo: apodDateLabel.bottomAnchor),
+            apodTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            apodTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     
     private func setUpViewModel() {
-        apodDateLabel.text = viewModel.apodDate
+        apodDateLabel.text = "Date: " + viewModel.apodDate
         apodTitleLabel.text = viewModel.apodTile
+        apodImageView.image = viewModel.apodImage
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.apodDateLabel.text = nil
+        self.apodTitleLabel.text = nil
+        self.apodImageView.image = nil
     }
 }

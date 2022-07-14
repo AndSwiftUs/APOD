@@ -14,6 +14,7 @@
 		4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */; };
 		4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */; };
 		4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */; };
+		499FDE4C287DACCB00AB3C65 /* DetailsViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FDE4B287DACCB00AB3C65 /* DetailsViewViewController.swift */; };
 		49D0D9B62843AA0B00664977 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B02843AA0B00664977 /* HTTPMethod.swift */; };
 		49D0D9B72843AA0B00664977 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B12843AA0B00664977 /* API.swift */; };
 		49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B22843AA0B00664977 /* HTTPScheme.swift */; };
@@ -45,6 +46,7 @@
 		4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVProgressHud.swift; sourceTree = "<group>"; };
 		4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCellViewModel.swift; sourceTree = "<group>"; };
 		4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCollectionCell.swift; sourceTree = "<group>"; };
+		499FDE4B287DACCB00AB3C65 /* DetailsViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewViewController.swift; sourceTree = "<group>"; };
 		49D0D9B02843AA0B00664977 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		49D0D9B12843AA0B00664977 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		49D0D9B22843AA0B00664977 /* HTTPScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPScheme.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				4952C7AF287C4A83002C5182 /* SearchView.swift */,
 				DC68B2222842A2300035C887 /* SearchViewController.swift */,
 				4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */,
+				499FDE4B287DACCB00AB3C65 /* DetailsViewViewController.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */,
 				49D0D9C62844059400664977 /* Extensions.swift in Sources */,
 				49D0D9C22843C7BD00664977 /* APOD.swift in Sources */,
+				499FDE4C287DACCB00AB3C65 /* DetailsViewViewController.swift in Sources */,
 				4952C7B0287C4A83002C5182 /* SearchView.swift in Sources */,
 				DC68B22B2842A3050035C887 /* SettingsViewController.swift in Sources */,
 				4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */,

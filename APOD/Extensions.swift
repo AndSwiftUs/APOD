@@ -13,6 +13,18 @@ extension UITextField {
     }
 }
 
+final class ImageLoader {
+
+    func loadImage(from url: URL) -> AnyPublisher<UIImage?, Never> {
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { (data, _) -> UIImage? in return UIImage(data: data) }
+            .catch { error in return Just(nil) }
+//            .subscribe(on: backgroundQueue)
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+}
+
 extension UIImageView {
     func loadImageFromURL(imageUrlString: String) {
         

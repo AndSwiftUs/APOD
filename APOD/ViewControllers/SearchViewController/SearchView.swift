@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class SearchView : UIView {
+final class SearchView : UIView, UICollectionViewDelegate {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     lazy var activityIndicationView = ActivityIndicatorView(style: .medium)
@@ -64,8 +64,8 @@ final class SearchView : UIView {
             searchButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 8/10),
             searchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: defaultMargin),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
@@ -102,9 +102,11 @@ final class SearchView : UIView {
     private func createLayout() -> UICollectionViewLayout {
         let size = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(40))
+            heightDimension: .fractionalHeight(1/2)
+//                    .estimated(180)
+        )
         let item = NSCollectionLayoutItem(layoutSize: size)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 2)
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)

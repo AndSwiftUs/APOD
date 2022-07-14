@@ -10,9 +10,13 @@ class AboutViewController: UIViewController {
 //        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.AboutVC.largeTitles
         
         let hosingFile = UIHostingController(rootView: AboutSwiftUIView())
+        
         addChild(hosingFile)
+        
         hosingFile.view.frame = self.view.frame
+        
         self.view.addSubview(hosingFile.view)
+        
         hosingFile.didMove(toParent: self)
         
     }

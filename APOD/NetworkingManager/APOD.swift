@@ -9,5 +9,4 @@ public struct APOD: Codable, Hashable {
     var service_version: String
     var title: String
     var url: String
-    
 }

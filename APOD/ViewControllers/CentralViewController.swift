@@ -17,7 +17,7 @@ class CentralViewController: UIViewController {
                       let explanation = self.currentAPOD?.explanation
                 else { return }
                 
-                self.imageNameLabel.text = "\(title)"
+                self.imageNameLabel.text = "\(title)\n"
                 
                 if let copyright = self.currentAPOD?.copyright {
                     self.imageTextLabel.text = "Copyright: \(copyright)\n\n\(explanation)"

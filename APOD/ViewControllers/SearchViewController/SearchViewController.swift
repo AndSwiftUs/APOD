@@ -32,7 +32,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AppConstants.ViewControllers.SearchVC.bgColor
         title = AppConstants.ViewControllers.SearchVC.title
-        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.SearchVC.largeTitles
+//        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.SearchVC.largeTitles
         
         setUpTableView()
         configureDataSource()
@@ -63,6 +63,13 @@ final class SearchViewController: UIViewController {
                     self?.updateSections()
                 })
                 .store(in: &bindings)
+            
+                viewModel.$dictionaryImageCache
+                    .receive(on: RunLoop.main)
+                    .sink(receiveValue: { [weak self] _ in
+                        self?.updateSections()
+                    })
+                    .store(in: &bindings)
         }
         
         bindViewToViewModel()
@@ -87,6 +94,8 @@ final class SearchViewController: UIViewController {
         contentView.collectionView.register(
             APODsCollectionCell.self,
             forCellWithReuseIdentifier: APODsCollectionCell.identifier)
+        
+        contentView.collectionView.delegate = contentView
     }
     
     private func updateSections() {
@@ -94,21 +103,55 @@ final class SearchViewController: UIViewController {
         snapshot.appendSections([.apods])
         snapshot.appendItems(viewModel.apods)
         dataSource.apply(snapshot, animatingDifferences: true)
+        contentView.collectionView.reloadData()
     }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension SearchViewController {
+    
     private func configureDataSource() {
+        
         dataSource = DataSource(
             collectionView: contentView.collectionView,
             cellProvider: { (collectionView, indexPath, apod) -> UICollectionViewCell? in
                 let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: APODsCollectionCell.identifier,
-                    for: indexPath) as? APODsCollectionCell
-                cell?.viewModel = APODsCellViewModel(apod: apod)
+                    withReuseIdentifier: APODsCollectionCell.identifier, for: indexPath) as? APODsCollectionCell
+                
+                cell?.viewModel = APODsCellViewModel(apod: apod, apodImage: self.viewModel.dictionaryImageCache[apod.url] ?? UIImage(named: "nasa-logo")!)
+                                
                 return cell
             })
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(indexPath.row + 1)
+        
+        // Get selected hero using index path
+        guard let selectedAPOD = dataSource.itemIdentifier(for: indexPath) else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            return
+        }
+        
+        print("Selected:", selectedAPOD.date)
+
+        // Create a new copy of APOD & update it
+        var updatedAPOD = selectedAPOD
+        updatedAPOD.title = "★ \(updatedAPOD.title)"
+
+        // Create a new copy of data source snapshot for modification
+        var newSnapshot = dataSource.snapshot()
+
+        // Replacing APOD with updatedHero
+        newSnapshot.insertItems([updatedAPOD], beforeItem: selectedAPOD)
+        newSnapshot.deleteItems([selectedAPOD])
+
+        // Apply snapshot changes to data source
+        dataSource.apply(newSnapshot)
+    }
 }
+
+
