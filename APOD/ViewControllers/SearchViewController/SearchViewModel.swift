@@ -38,7 +38,7 @@ final class SearchViewModel {
             .store(in: &bindings)
         
         print(#function)
-}
+    }
     
     func cacheAPODsImages() {
         print(#function, " Start")

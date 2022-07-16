@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class SearchView : UIView, UICollectionViewDelegate {
+final class SearchView : UIView {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     lazy var activityIndicationView = ActivityIndicatorView(style: .medium)
@@ -45,6 +45,7 @@ final class SearchView : UIView, UICollectionViewDelegate {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
+        
     }
     
     private func setUpConstraints() {
@@ -101,9 +102,8 @@ final class SearchView : UIView, UICollectionViewDelegate {
     
     private func createLayout() -> UICollectionViewLayout {
         let size = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/2)
-//                    .estimated(180)
+            widthDimension:  .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1/2) // .estimated(180)
         )
         let item = NSCollectionLayoutItem(layoutSize: size)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 2)
@@ -114,5 +114,4 @@ final class SearchView : UIView, UICollectionViewDelegate {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
-    
 }

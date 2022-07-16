@@ -32,9 +32,9 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AppConstants.ViewControllers.SearchVC.bgColor
         title = AppConstants.ViewControllers.SearchVC.title
-//        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.SearchVC.largeTitles
+        //        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.SearchVC.largeTitles
         
-        setUpTableView()
+        setUpCollectonView()
         configureDataSource()
         setUpBindings()
     }
@@ -64,12 +64,12 @@ final class SearchViewController: UIViewController {
                 })
                 .store(in: &bindings)
             
-                viewModel.$dictionaryImageCache
-                    .receive(on: RunLoop.main)
-                    .sink(receiveValue: { [weak self] _ in
-                        self?.updateSections()
-                    })
-                    .store(in: &bindings)
+            viewModel.$dictionaryImageCache
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.updateSections()
+                })
+                .store(in: &bindings)
         }
         
         bindViewToViewModel()
@@ -90,12 +90,13 @@ final class SearchViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func setUpTableView() {
+    private func setUpCollectonView() {
         contentView.collectionView.register(
             APODsCollectionCell.self,
             forCellWithReuseIdentifier: APODsCollectionCell.identifier)
         
-        contentView.collectionView.delegate = contentView
+        contentView.collectionView.delegate = self
+        
     }
     
     private func updateSections() {
@@ -109,7 +110,7 @@ final class SearchViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 
-extension SearchViewController {
+extension SearchViewController: UICollectionViewDelegate {
     
     private func configureDataSource() {
         
@@ -120,7 +121,7 @@ extension SearchViewController {
                     withReuseIdentifier: APODsCollectionCell.identifier, for: indexPath) as? APODsCollectionCell
                 
                 cell?.viewModel = APODsCellViewModel(apod: apod, apodImage: self.viewModel.dictionaryImageCache[apod.url] ?? UIImage(named: "nasa-logo")!)
-                                
+                
                 return cell
             })
     }
@@ -136,21 +137,24 @@ extension SearchViewController {
             return
         }
         
-        print("Selected:", selectedAPOD.date)
-
+        print("Selected:", selectedAPOD.date, selectedAPOD.url)
+        
         // Create a new copy of APOD & update it
         var updatedAPOD = selectedAPOD
         updatedAPOD.title = "★ \(updatedAPOD.title)"
-
+        
         // Create a new copy of data source snapshot for modification
         var newSnapshot = dataSource.snapshot()
-
+        
         // Replacing APOD with updatedHero
         newSnapshot.insertItems([updatedAPOD], beforeItem: selectedAPOD)
         newSnapshot.deleteItems([selectedAPOD])
-
+        
         // Apply snapshot changes to data source
         dataSource.apply(newSnapshot)
+        
+        let detailsVC = DetailsViewController(apod: selectedAPOD, apodImage: (self.viewModel.dictionaryImageCache[selectedAPOD.url] ?? UIImage(named: "nasa-logo"))!)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 

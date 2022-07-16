@@ -58,9 +58,9 @@ Powered by\nPublic NASA API: https://api.nasa.gov
     }
 }
 
-struct AboutSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutSwiftUIView()
-            .previewInterfaceOrientation(.portrait)
-    }
-}
+//struct AboutSwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AboutSwiftUIView()
+//            .previewInterfaceOrientation(.portrait)
+//    }
+//}

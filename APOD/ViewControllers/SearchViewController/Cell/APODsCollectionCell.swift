@@ -34,12 +34,6 @@ final class APODsCollectionCell: UICollectionViewCell {
     
     private func setUpConstraints() {
         
-        apodDateLabel.font  = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        apodDateLabel.textAlignment = .center
-        
-        apodTitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        apodTitleLabel.numberOfLines = 2
-        
         NSLayoutConstraint.activate([
             
             apodImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -48,7 +42,7 @@ final class APODsCollectionCell: UICollectionViewCell {
             apodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             apodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            apodDateLabel.topAnchor.constraint(equalTo: apodImageView.bottomAnchor, constant: 4),
+            apodDateLabel.topAnchor.constraint(equalTo: apodImageView.bottomAnchor, constant: -18),
             apodDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             apodDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
@@ -59,6 +53,15 @@ final class APODsCollectionCell: UICollectionViewCell {
     }
     
     private func setUpViewModel() {
+        
+        apodDateLabel.font  = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        apodDateLabel.textAlignment = .center
+        apodDateLabel.backgroundColor = .systemGray
+        apodDateLabel.textColor = .systemGray6
+        
+        apodTitleLabel.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        apodTitleLabel.numberOfLines = 2
+        
         apodDateLabel.text = "Date: " + viewModel.apodDate
         apodTitleLabel.text = viewModel.apodTile
         apodImageView.image = viewModel.apodImage
