@@ -7,7 +7,6 @@ class AboutViewController: UIViewController {
         
         view.backgroundColor = AppConstants.ViewControllers.AboutVC.bgColor
         title = AppConstants.ViewControllers.AboutVC.title
-//        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.AboutVC.largeTitles
         
         let hosingFile = UIHostingController(rootView: AboutSwiftUIView())
         

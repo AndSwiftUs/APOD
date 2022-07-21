@@ -18,20 +18,18 @@ final class SearchViewModel {
         
         CAVProgressHud.sharedInstance.show(withTitle: "Loading data from NASA...")
         
-        let defaultCount = 8
-        
         let dataTaskPublisher = URLSession.shared.dataTaskPublisher(
-            for: URL(string: "https://api.nasa.gov/planetary/apod?count=\(defaultCount)&api_key=58EbYM2UDKh8ovgnnbwtoBBqJSGpANHhQ78Xbuds")!)
+            for: URL(string: "https://api.nasa.gov/planetary/apod?count=\(AppConstants.defaultCountOfRandomAPODs)&api_key=\(AppConstants.NASA.myAPIKEY)")!)
         
         dataTaskPublisher
-        //            .retry(1)
+            .retry(1)
             .map { $0.data }
             .decode(type: [APOD].self, decoder: JSONDecoder() )
-            .replaceError(with: [])
+            .replaceError(with: [APOD(date: "Error", explanation: "No Internet connection", media_type: "", service_version: "", title: "No Internet connection", url: "")])
             .eraseToAnyPublisher()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { data in
-                print(#function, data)
+//                print(#function, data)
                 self.apods = data
                 CAVProgressHud.sharedInstance.hide()
             })
@@ -47,7 +45,8 @@ final class SearchViewModel {
             if (dictionaryImageCache[apod.url] == nil) {
                 
                 guard let url = URL(string: //apod.hdurl ??
-                                    apod.url) else { return }
+                                    apod.url)
+                else { return }
                 
                 URLSession.shared.dataTaskPublisher(for: url)
                     .map { UIImage(data: $0.data) }
@@ -55,7 +54,7 @@ final class SearchViewModel {
                     .receive(on: DispatchQueue.main)
                     .sink(receiveValue: { image in
                         self.dictionaryImageCache[apod.url] = image
-                        print(#function, "APOD image load from: ", apod.url, " ", image?.size)
+                        print(#function, "APOD image load from: ", apod.url, " ", image?.size ?? "no image")
                     })
                     .store(in: &bindings)
             }

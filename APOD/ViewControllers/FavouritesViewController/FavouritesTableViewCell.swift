@@ -1,19 +1,20 @@
 import UIKit
-import Combine
 
-final class APODsCollectionCell: UICollectionViewCell {
-    static let identifier = "APODsTableViewCell"
+final class FavouritesTableViewCell: UITableViewCell {
     
-    var viewModel: APODsCellViewModel! {
+    static let identifier = "FavouritesTableViewCell"
+    
+    var viewModel: FavouritesTableViewCellViewModel! {
         didSet { setUpViewModel() }
     }
     
     var apodDateLabel = UILabel()
     var apodTitleLabel = UILabel()
     var apodImageView = UIImageView()
+    var deleteButton = UIButton()
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubiews()
         setUpConstraints()
@@ -33,30 +34,31 @@ final class APODsCollectionCell: UICollectionViewCell {
         
         apodImageView.addSubview(apodTitleLabel)
         apodTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        apodImageView.addSubview(deleteButton)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setUpConstraints() {
         
         NSLayoutConstraint.activate([
-//            apodImageView.topAnchor.constraint(equalTo: topAnchor),
-//            apodImageView.widthAnchor.constraint(equalTo: widthAnchor),
-//            apodImageView.heightAnchor.constraint(equalTo: widthAnchor),
-//            apodImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            apodImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: apodImageView.topAnchor),
-            contentView.centerXAnchor.constraint(equalTo: apodImageView.centerXAnchor),
-            contentView.bottomAnchor.constraint(equalTo: apodImageView.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: apodImageView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: apodImageView.trailingAnchor),
+                        
+            apodImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppConstants.defaultPaggin),
+            apodImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            apodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            apodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            apodImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
         
         NSLayoutConstraint.activate([
-            apodDateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            apodDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            apodDateLabel.topAnchor.constraint(equalTo: topAnchor, constant: AppConstants.defaultPaggin),
+            apodDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.defaultPaggin),
             
-            apodTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            apodTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            apodTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -AppConstants.defaultPaggin),
+            apodTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: AppConstants.defaultPaggin),
+            
+            deleteButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -AppConstants.defaultPaggin),
+            deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.defaultPaggin),
         ])
     }
     
@@ -77,8 +79,13 @@ final class APODsCollectionCell: UICollectionViewCell {
         
         apodImageView.image = viewModel.apodImage
         apodImageView.clipsToBounds = true
-        apodImageView.layer.cornerRadius = 4
-        apodImageView.layer.shadowRadius = 4
+        apodImageView.layer.cornerRadius = 8
+        apodImageView.layer.shadowRadius = 8
+        apodImageView.contentMode = .scaleToFill
+
+        deleteButton.imageView?.image = UIImage(systemName: "trash.fill")
+        deleteButton.backgroundColor = .systemRed
+        deleteButton.titleColor(for: .normal)
     }
     
     override func prepareForReuse() {

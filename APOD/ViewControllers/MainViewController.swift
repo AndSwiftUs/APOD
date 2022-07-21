@@ -6,6 +6,8 @@ class MainViewController: UIViewController {
     private let imageLabel  = UILabel()
     private let loginButton = UIButton()
     
+    let storageManager = MainStorageManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,9 +24,9 @@ class MainViewController: UIViewController {
     @objc func didTapLoginButton() {
         let tabBarVC = UITabBarController()
         
-        let vc1 = UINavigationController(rootViewController: SearchViewController())
-        let vc2 = UINavigationController(rootViewController: FavouritesViewController())
-        let vc3 = UINavigationController(rootViewController: CentralViewController())
+        let vc1 = UINavigationController(rootViewController: SearchViewController(storageManager: storageManager))
+        let vc2 = UINavigationController(rootViewController: FavouritesViewController(storageManager: storageManager))
+        let vc3 = UINavigationController(rootViewController: CentralViewController(storeManager: storageManager))
         let vc4 = UINavigationController(rootViewController: AboutViewController())
         let vc5 = UINavigationController(rootViewController: SettingsViewController())
         
@@ -50,9 +52,9 @@ class MainViewController: UIViewController {
         }
         
         // делаем текущим 3й вью
-//        tabBarVC.selectedIndex = 2
+        tabBarVC.selectedIndex = 2
         
-        tabBarVC.selectedIndex = 0
+        tabBarVC.selectedIndex = 1
         tabBarVC.modalPresentationStyle = .fullScreen
         
         present(tabBarVC, animated: false)

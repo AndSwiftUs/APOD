@@ -9,14 +9,16 @@ final class SearchViewController: UIViewController {
     
     private lazy var contentView = SearchView()
     private let viewModel: SearchViewModel
+    private let storageManager: MainStorageManager
     private var bindings = Set<AnyCancellable>()
     
     var searchText: String = ""
     
     private var dataSource: DataSource!
     
-    init(viewModel: SearchViewModel = SearchViewModel()) {
+    init(storageManager: MainStorageManager, viewModel: SearchViewModel = SearchViewModel()) {
         self.viewModel = viewModel
+        self.storageManager = storageManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,7 +34,6 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AppConstants.ViewControllers.SearchVC.bgColor
         title = AppConstants.ViewControllers.SearchVC.title
-        //        self.navigationController?.navigationBar.prefersLargeTitles = AppConstants.ViewControllers.SearchVC.largeTitles
         
         setUpCollectonView()
         configureDataSource()
@@ -78,16 +79,7 @@ final class SearchViewController: UIViewController {
     
     @objc func tapSearchButton() {
         self.contentView.isRandomSearch
-        ? viewModel.searchRandomAPODs() : viewModel.searchAPODsForName(name: searchText)
-    }
-    
-    private func showError(_ error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
+                ? viewModel.searchRandomAPODs() : viewModel.searchAPODsForName(name: searchText)
     }
     
     private func setUpCollectonView() {
@@ -96,7 +88,6 @@ final class SearchViewController: UIViewController {
             forCellWithReuseIdentifier: APODsCollectionCell.identifier)
         
         contentView.collectionView.delegate = self
-        
     }
     
     private func updateSections() {
@@ -109,11 +100,10 @@ final class SearchViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-
+    
 extension SearchViewController: UICollectionViewDelegate {
     
     private func configureDataSource() {
-        
         dataSource = DataSource(
             collectionView: contentView.collectionView,
             cellProvider: { (collectionView, indexPath, apod) -> UICollectionViewCell? in
@@ -126,7 +116,6 @@ extension SearchViewController: UICollectionViewDelegate {
             })
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print(indexPath.row + 1)
@@ -138,24 +127,8 @@ extension SearchViewController: UICollectionViewDelegate {
         }
         
         print("Selected:", selectedAPOD.date, selectedAPOD.url)
-        
-        // Create a new copy of APOD & update it
-        var updatedAPOD = selectedAPOD
-        updatedAPOD.title = "★ \(updatedAPOD.title)"
-        
-        // Create a new copy of data source snapshot for modification
-        var newSnapshot = dataSource.snapshot()
-        
-        // Replacing APOD with updatedHero
-        newSnapshot.insertItems([updatedAPOD], beforeItem: selectedAPOD)
-        newSnapshot.deleteItems([selectedAPOD])
-        
-        // Apply snapshot changes to data source
-        dataSource.apply(newSnapshot)
-        
-        let detailsVC = DetailsViewController(apod: selectedAPOD, apodImage: (self.viewModel.dictionaryImageCache[selectedAPOD.url] ?? UIImage(named: "nasa-logo"))!)
+            
+        let detailsVC = DetailsViewController(storageManager: storageManager, apod: selectedAPOD, apodImage: (self.viewModel.dictionaryImageCache[selectedAPOD.url] ?? UIImage(named: "nasa-logo"))!)
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
-
-

@@ -2,7 +2,6 @@ import UIKit
 
 final class APODView: UIView {
 
-    lazy var imageZoomableScrollingView = UIScrollView()
     lazy var imageView = UIImageView()
     lazy var imageNameLabel = UILabel()
     lazy var imageTextScrollingView = UIScrollView()

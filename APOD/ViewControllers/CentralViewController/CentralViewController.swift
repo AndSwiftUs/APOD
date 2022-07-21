@@ -3,7 +3,22 @@ import UIKit
 class CentralViewController: UIViewController {
     
     private let networkingManager = NetworkingManager()
+    private let storageManager: MainStorageManager
     private lazy var contentView = APODView()
+    
+    private lazy var favouriteButton = UIBarButtonItem(image: UIImage(systemName: "star"),
+                                                       style: .done,
+                                                       target: self,
+                                                       action: #selector(favouriteButtonTapped))
+    private var isFavourite: Bool = false {
+        didSet { favouriteButton.image = UIImage(systemName: isFavourite ? "star.fill" : "star") }
+    }
+    @objc func favouriteButtonTapped() {
+        isFavourite.toggle()
+        storageManager.saveItem(with: currentAPOD!, apodImage: contentView.imageView.image!) { error in
+            self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
+        }
+    }
     
     private var currentAPOD:APOD? = nil {
         didSet {
@@ -18,7 +33,7 @@ class CentralViewController: UIViewController {
                 if let copyright = self.currentAPOD?.copyright {
                     self.contentView.imageTextLabel.text = "Copyright: \(copyright)\n\n\(explanation)"
                 } else {
-                    self.contentView.imageTextLabel.text = "\(explanation)"
+                    self.contentView.imageTextLabel.text = explanation
                 }
                 
                 self.fetchImageFromCurrentInstance()
@@ -27,8 +42,18 @@ class CentralViewController: UIViewController {
         }
     }
     
+    init(storeManager: MainStorageManager) {
+        self.storageManager = storeManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = contentView
+        navigationItem.rightBarButtonItem = favouriteButton
     }
     
     //MARK: viewDidLoad
@@ -64,24 +89,10 @@ class CentralViewController: UIViewController {
                 self.currentAPOD = apod
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showAlert(error: error.rawValue)
+                    self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
+                    self.contentView.imageTextLabel.text = error.rawValue
                 }
             }
         }
-    }
-    
-    func showAlert(error: String) {
-        CAVProgressHud.sharedInstance.hide()
-        let alert = UIAlertController(
-            title: "Error loading data:\n",
-            message: error,
-            preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Ok", style: .default) {_ in
-            self.contentView.imageNameLabel.text = "\nTry pull to refresh"
-            return
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
 }

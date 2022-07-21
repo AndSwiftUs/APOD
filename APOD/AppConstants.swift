@@ -5,6 +5,10 @@ struct AppConstants {
     
     static let debug = true
     
+    static let defaultCountOfRandomAPODs = 20
+    
+    static let defaultPaggin = CGFloat( 4 )
+    
     struct ViewControllers {
         
         struct SearchVC {
@@ -22,7 +26,7 @@ struct AppConstants {
         }
         
         struct CentralVC {
-            static let title = "APOD"
+            static let title = "Picture of the Day"
             static let image = "person"
             static let bgColor = UIColor.systemGray6
             static let largeTitles = false

@@ -4,11 +4,10 @@ import UIKit
 final class SearchView : UIView {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-    lazy var activityIndicationView = ActivityIndicatorView(style: .medium)
     lazy var searchTextField = UITextField()
     lazy var searchButton = UIButton()
     lazy var seachLabel = UILabel()
-    
+        
     var isRandomSearch = true
     
     init() {
@@ -23,29 +22,13 @@ final class SearchView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startLoading() {
-        collectionView.isUserInteractionEnabled = false
-        searchTextField.isUserInteractionEnabled = false
-        
-        activityIndicationView.isHidden = false
-        activityIndicationView.startAnimating()
-    }
-    
-    func finishLoading() {
-        collectionView.isUserInteractionEnabled = true
-        searchTextField.isUserInteractionEnabled = true
-        
-        activityIndicationView.stopAnimating()
-    }
-    
     private func addSubviews() {
-        let subviews = [searchTextField, searchButton, seachLabel, collectionView, activityIndicationView]
+        let subviews = [searchTextField, searchButton, seachLabel, collectionView]
         
         subviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
-        
     }
     
     private func setUpConstraints() {
@@ -69,12 +52,7 @@ final class SearchView : UIView {
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: defaultMargin),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
-            activityIndicationView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            activityIndicationView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            activityIndicationView.heightAnchor.constraint(equalToConstant: 50),
-            activityIndicationView.widthAnchor.constraint(equalToConstant: 50.0)
-            
+
         ])
     }
     
@@ -101,16 +79,25 @@ final class SearchView : UIView {
     }
     
     private func createLayout() -> UICollectionViewLayout {
-        let size = NSCollectionLayoutSize(
-            widthDimension:  .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/2) // .estimated(180)
+               
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension:  .fractionalWidth(1/2),
+            heightDimension: .fractionalHeight(1)
         )
-        let item = NSCollectionLayoutItem(layoutSize: size)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 2)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 2, bottom: 4, trailing: 2)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1/3)
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        section.interGroupSpacing = 5
+        section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+        
+//        section.orthogonalScrollingBehavior = .continuous
         
         return UICollectionViewCompositionalLayout(section: section)
     }
