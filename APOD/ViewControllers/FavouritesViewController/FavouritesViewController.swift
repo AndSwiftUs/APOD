@@ -31,7 +31,13 @@ class FavouritesViewController: UIViewController {
         setupUI()
         setUpBindings()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         viewModel.fetchAllFavourites()
+        contentView.tableView.reloadData()
     }
     
     private func setupUI() {
