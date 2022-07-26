@@ -5,10 +5,11 @@ struct AppConstants {
     
     static let debug = true
     
-    static let defaultCountOfRandomAPODs = 20
+    static let defaultCountOfRandomAPODs    = 6
     
-    static let defaultPaggin = CGFloat( 4 )
-    
+    static let defaultThinPaggin      = CGFloat( 4 )
+    static let defaultPaggin          = CGFloat( 16 )
+
     struct ViewControllers {
         
         struct SearchVC {
@@ -49,6 +50,7 @@ struct AppConstants {
     
     struct NASA {
         static let defaultAPIKey = "DEMO_KEY"
+        static let defaultNASAUrl = "https://api.nasa.gov/planetary/apod"
         static let myAPIKEY = "58EbYM2UDKh8ovgnnbwtoBBqJSGpANHhQ78Xbuds"
         
         static let baseURLScheme = HTTPScheme.https

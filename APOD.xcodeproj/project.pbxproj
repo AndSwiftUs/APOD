@@ -24,6 +24,7 @@
 		4969707628886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */; };
 		499FDE4C287DACCB00AB3C65 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */; };
 		49BD279F288319D8000E8766 /* APODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD279E288319D8000E8766 /* APODView.swift */; };
+		49CAB053288ADB1D0006A0F0 /* ZoomableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */; };
 		49D0D9B62843AA0B00664977 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B02843AA0B00664977 /* HTTPMethod.swift */; };
 		49D0D9B72843AA0B00664977 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B12843AA0B00664977 /* API.swift */; };
 		49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B22843AA0B00664977 /* HTTPScheme.swift */; };
@@ -65,6 +66,7 @@
 		4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		49BD279E288319D8000E8766 /* APODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODView.swift; sourceTree = "<group>"; };
+		49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableDetailViewController.swift; sourceTree = "<group>"; };
 		49D0D9B02843AA0B00664977 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		49D0D9B12843AA0B00664977 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		49D0D9B22843AA0B00664977 /* HTTPScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPScheme.swift; sourceTree = "<group>"; };
@@ -149,8 +151,7 @@
 		49BD279C288318C9000E8766 /* FavouritesViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */,
-				496970732888496F00F8D8C5 /* FavouritesTableViewCell.swift */,
+				49CAB051288AAC8D0006A0F0 /* Cell */,
 				4969706D2887403100F8D8C5 /* FavouritesView.swift */,
 				DC68B2242842A26E0035C887 /* FavouritesViewController.swift */,
 				4969706F2887407000F8D8C5 /* FavouritesViewModel.swift */,
@@ -164,6 +165,15 @@
 				DC68B22A2842A3050035C887 /* SettingsViewController.swift */,
 			);
 			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		49CAB051288AAC8D0006A0F0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */,
+				496970732888496F00F8D8C5 /* FavouritesTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		49D0D9BC2843AA2A00664977 /* NetworkingManager */ = {
@@ -226,6 +236,7 @@
 			children = (
 				DC68B212284281440035C887 /* MainViewController.swift */,
 				499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */,
+				49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */,
 				4952C7AE287C4828002C5182 /* SearchViewController */,
 				49BD279C288318C9000E8766 /* FavouritesViewController */,
 				49BD279B288318BA000E8766 /* CentralViewController */,
@@ -306,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CAB053288ADB1D0006A0F0 /* ZoomableDetailViewController.swift in Sources */,
 				4952C7B2287C4AA1002C5182 /* SearchViewModel.swift in Sources */,
 				49D0D9B92843AA0B00664977 /* NasaJSONsAPI.swift in Sources */,
 				49D0D9B72843AA0B00664977 /* API.swift in Sources */,
@@ -495,7 +507,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +536,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

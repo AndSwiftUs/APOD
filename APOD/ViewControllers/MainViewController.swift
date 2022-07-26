@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBlue
-                
+        
         setUpNasaLogoImage()
         setUpLoginButton()
     }
@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
         let tabBarVC = UITabBarController()
         
         let vc1 = UINavigationController(rootViewController: SearchViewController(storageManager: storageManager))
-        let vc2 = UINavigationController(rootViewController: FavouritesViewController(storageManager: storageManager))
+        let vc2 = UINavigationController(rootViewController: FavouritesViewController()) //storageManager: storageManager))
         let vc3 = UINavigationController(rootViewController: CentralViewController(storeManager: storageManager))
         let vc4 = UINavigationController(rootViewController: AboutViewController())
         let vc5 = UINavigationController(rootViewController: SettingsViewController())
@@ -53,8 +53,8 @@ class MainViewController: UIViewController {
         
         // делаем текущим 3й вью
         tabBarVC.selectedIndex = 2
+        if AppConstants.debug { tabBarVC.selectedIndex = 0 }
         
-        tabBarVC.selectedIndex = 1
         tabBarVC.modalPresentationStyle = .fullScreen
         
         present(tabBarVC, animated: false)
@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
         imageLabel.translatesAutoresizingMaskIntoConstraints = false
         imageLabel.textAlignment = .center
         imageLabel.numberOfLines = 3
-        imageLabel.text = "Astronomy Picture Of the Day\nbased on public NASA API\nby Andrew, 2022"
+        imageLabel.text = "Astronomy Picture Of the Day\nbased on public NASA API\nby Andrew, 2022."
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 44),

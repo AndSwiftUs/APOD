@@ -17,7 +17,12 @@ class DetailsViewController: UIViewController {
     }
     @objc func favouriteButtonTapped() {
         isFavourite.toggle()
-        storageManager.saveItem(with: apod!, apodImage: apodImage!) { error in
+        
+        guard let apod = apod,
+              let apodImage = apodImage
+        else { return }
+        
+        storageManager.saveItem(with: apod, apodImage: apodImage) { error in
             self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
         }
     }

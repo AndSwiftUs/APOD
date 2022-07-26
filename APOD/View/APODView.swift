@@ -2,10 +2,10 @@ import UIKit
 
 final class APODView: UIView {
     
+    lazy var pageScrollingView = UIScrollView()
+    lazy var imageNameLabel = UILabel()
     lazy var zoomView = UIScrollView()
     lazy var imageView = UIImageView()
-    lazy var imageNameLabel = UILabel()
-    lazy var imageTextScrollingView = UIScrollView()
     lazy var imageTextLabel = UILabel()
     
     init() {
@@ -21,40 +21,43 @@ final class APODView: UIView {
     }
     
     private func addSubviews() {
+                
+        addSubview(imageNameLabel)
+        imageNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(pageScrollingView)
+        pageScrollingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        pageScrollingView.addSubview(zoomView)
+        zoomView.translatesAutoresizingMaskIntoConstraints = false
         
         zoomView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageTextScrollingView.addSubview(imageTextLabel)
+        pageScrollingView.addSubview(imageTextLabel)
         imageTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let subviews = [ zoomView, imageNameLabel, imageTextScrollingView]
-        
-        subviews.forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            addSubview($0)
-        }
     }
     
     private func setUpViews() {
                         
-        zoomView.bounces = true
-        zoomView.minimumZoomScale = 1
+        imageNameLabel.textAlignment = .center
+        imageNameLabel.adjustsFontSizeToFitWidth = true
+        imageNameLabel.numberOfLines = 1
+        imageNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        imageNameLabel.clipsToBounds = true
+        imageNameLabel.layer.cornerRadius = 4
+        
+        zoomView.minimumZoomScale = 0.5
         zoomView.maximumZoomScale = 3
         zoomView.showsHorizontalScrollIndicator = false
         zoomView.showsVerticalScrollIndicator = false
         zoomView.delegate = self
         zoomView.isUserInteractionEnabled = true
-        
-        imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        
-        imageNameLabel.textAlignment = .center
-        imageNameLabel.adjustsFontSizeToFitWidth = true
-        imageNameLabel.numberOfLines = 2
-        imageNameLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        imageNameLabel.clipsToBounds = true
-        imageNameLabel.layer.cornerRadius = 4
+        zoomView.layer.cornerRadius = 8
+                
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         
         imageTextLabel.textAlignment = .center
         imageTextLabel.numberOfLines = 100
@@ -78,29 +81,28 @@ final class APODView: UIView {
             
             imageNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 8/10),
+            imageNameLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultPaggin),
             
-            zoomView.topAnchor.constraint(equalTo: imageNameLabel.bottomAnchor),
-            zoomView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            zoomView.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultPaggin),
-            zoomView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 6/10),
-
+            pageScrollingView.topAnchor.constraint(equalTo: imageNameLabel.bottomAnchor),
+            pageScrollingView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            pageScrollingView.widthAnchor.constraint(equalTo: widthAnchor),
+            pageScrollingView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pageScrollingView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            
+            zoomView.topAnchor.constraint(equalTo: pageScrollingView.topAnchor),
+            zoomView.centerXAnchor.constraint(equalTo: pageScrollingView.centerXAnchor),
+            zoomView.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultThinPaggin),
+            zoomView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 7/10),
+            
             imageView.topAnchor.constraint(equalTo: zoomView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: zoomView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: zoomView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: zoomView.trailingAnchor),
-            imageView.centerYAnchor.constraint(equalTo: zoomView.centerYAnchor),
             imageView.centerXAnchor.constraint(equalTo: zoomView.centerXAnchor),
+            imageView.widthAnchor.constraint(equalTo: widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 7/10),
             
-            imageTextScrollingView.topAnchor.constraint(equalTo: zoomView.bottomAnchor),
-            imageTextScrollingView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            imageTextScrollingView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageTextScrollingView.widthAnchor.constraint(equalTo: widthAnchor),
-            
-            imageTextLabel.topAnchor.constraint(equalTo: imageTextScrollingView.topAnchor),
-            imageTextLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 9/10),
-            imageTextLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageTextLabel.bottomAnchor.constraint(equalTo: imageTextScrollingView.bottomAnchor),
+            imageTextLabel.topAnchor.constraint(equalTo: zoomView.bottomAnchor, constant: AppConstants.defaultThinPaggin),
+            imageTextLabel.widthAnchor.constraint(equalTo: pageScrollingView.widthAnchor, multiplier: 9/10),
+            imageTextLabel.centerXAnchor.constraint(equalTo: pageScrollingView.centerXAnchor),
+            imageTextLabel.bottomAnchor.constraint(equalTo: pageScrollingView.bottomAnchor),
             
         ])
     }

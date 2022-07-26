@@ -8,7 +8,7 @@ class FavouritesViewModel {
     private var bindings = Set<AnyCancellable>()
 
     func fetchAllFavourites() {
-        APODsArray = MainStorageManager.shared.getAllItems()
+        APODsArray = MainStorageManager.shared.getAllItemsReversed()
         return
     }
     

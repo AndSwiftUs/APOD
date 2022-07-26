@@ -4,12 +4,12 @@ import UIKit
 final class SearchView : UIView {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-    lazy var searchTextField = UITextField()
-    lazy var searchButton = UIButton()
-    lazy var seachLabel = UILabel()
-        
-    var isRandomSearch = true
-    
+    lazy var randomSearchButton = UIButton()
+    lazy var randomSeachLabel = UILabel()
+    lazy var datePicker = UIDatePicker()
+    lazy var datePickerLabel = UILabel()
+    lazy var countPicker = UIPickerView()
+            
     init() {
         super.init(frame: .zero)
         
@@ -23,7 +23,7 @@ final class SearchView : UIView {
     }
     
     private func addSubviews() {
-        let subviews = [searchTextField, searchButton, seachLabel, collectionView]
+        let subviews = [countPicker, datePicker, datePickerLabel, randomSearchButton, randomSeachLabel, collectionView]
         
         subviews.forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -32,25 +32,35 @@ final class SearchView : UIView {
     }
     
     private func setUpConstraints() {
-        let defaultMargin: CGFloat = 8.0
         
         NSLayoutConstraint.activate([
+                        
+            datePickerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPaggin),
+            datePickerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPaggin),
+            datePickerLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 2/3),
+            datePickerLabel.heightAnchor.constraint(equalTo: datePicker.heightAnchor),
             
-            seachLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: defaultMargin),
-            seachLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 8/10),
-            seachLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPaggin),
+            datePicker.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3),
+            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -AppConstants.defaultThinPaggin),
+                        
+            randomSeachLabel.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultPaggin),
+            randomSeachLabel.widthAnchor.constraint(equalTo: datePickerLabel.widthAnchor, constant: -56 - AppConstants.defaultThinPaggin),
+            randomSeachLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPaggin),
+                        
+            countPicker.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultThinPaggin),
+            countPicker.leadingAnchor.constraint(equalTo: randomSeachLabel.trailingAnchor, constant: AppConstants.defaultPaggin),
+            countPicker.trailingAnchor.constraint(equalTo: randomSearchButton.leadingAnchor, constant: -AppConstants.defaultPaggin),
+            countPicker.heightAnchor.constraint(lessThanOrEqualToConstant: 80),
+            countPicker.widthAnchor.constraint(lessThanOrEqualToConstant: 56),
+            countPicker.centerYAnchor.constraint(equalTo: randomSearchButton.centerYAnchor),
             
-            searchTextField.topAnchor.constraint(equalTo: seachLabel.bottomAnchor, constant: defaultMargin),
-            searchTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 9/10),
-            searchTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            searchButton.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: defaultMargin),
-            searchButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 8/10),
-            searchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            randomSearchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.defaultThinPaggin),
+            randomSearchButton.centerYAnchor.constraint(equalTo: randomSeachLabel.centerYAnchor),
             
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: defaultMargin),
+            collectionView.topAnchor.constraint(equalTo: randomSeachLabel.bottomAnchor, constant: AppConstants.defaultPaggin),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 
         ])
@@ -60,22 +70,32 @@ final class SearchView : UIView {
         
         collectionView.backgroundColor = .systemBackground
         
-        searchTextField.autocorrectionType = .no
-        searchTextField.backgroundColor = .systemBackground
-        searchTextField.backgroundColor = .systemGray6
-        searchTextField.borderStyle = .roundedRect
-        searchTextField.placeholder = "enter keyword for search..."
+        datePicker.datePickerMode = .date
         
-        searchButton.setTitle(isRandomSearch ? "Random search" : "Search", for: .normal)
-        searchButton.backgroundColor = .blue
-        searchButton.layer.cornerRadius = 5.0
-        searchButton.layer.masksToBounds = true
+        datePickerLabel.numberOfLines = 1
+        datePickerLabel.textColor = .systemGray
+        datePickerLabel.text = "Choose date to search"
         
-        seachLabel.numberOfLines = 1
-        seachLabel.textColor = .systemGray
-        seachLabel.font = .systemFont(ofSize: 12)
-        seachLabel.textAlignment = .right
-        seachLabel.text = "Enter more than TWO character to search"
+        countPicker.clipsToBounds = true
+        
+        let titleParagraphStyle = NSMutableParagraphStyle()
+        titleParagraphStyle.alignment = .center
+        
+        let customButtonTitle = NSMutableAttributedString(string: "Random\nsearch", attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12),
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.paragraphStyle: titleParagraphStyle
+        ])
+
+        randomSearchButton.setAttributedTitle(customButtonTitle, for: .normal)
+                randomSearchButton.backgroundColor = .systemBlue
+        randomSearchButton.layer.cornerRadius = 5.0
+        randomSearchButton.layer.masksToBounds = true
+        randomSearchButton.titleLabel?.numberOfLines = 2
+                
+        randomSeachLabel.numberOfLines = 2
+        randomSeachLabel.textColor = .systemGray
+        randomSeachLabel.text = "Choose number of APODs\nto random search:"
     }
     
     private func createLayout() -> UICollectionViewLayout {

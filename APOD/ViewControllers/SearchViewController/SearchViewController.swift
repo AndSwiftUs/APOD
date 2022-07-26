@@ -12,6 +12,9 @@ final class SearchViewController: UIViewController {
     private let storageManager: MainStorageManager
     private var bindings = Set<AnyCancellable>()
     
+    let countPickerDataSource = [2, 4, 6, 10, 20, 30, 50]
+    var currentCountOfRandomAPODs = AppConstants.defaultCountOfRandomAPODs
+    
     var searchText: String = ""
     
     private var dataSource: DataSource!
@@ -30,6 +33,11 @@ final class SearchViewController: UIViewController {
         view = contentView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        contentView.countPicker.reloadAllComponents()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppConstants.ViewControllers.SearchVC.bgColor
@@ -38,23 +46,19 @@ final class SearchViewController: UIViewController {
         setUpCollectonView()
         configureDataSource()
         setUpBindings()
+        
+        // set default picker to 3 item
+        contentView.countPicker.selectRow(2, inComponent: 0, animated: true)
     }
     
     private func setUpBindings() {
         
-        contentView.searchButton.addTarget(self, action: #selector(tapSearchButton), for: .touchUpInside)
+        contentView.datePicker.addTarget(self, action: #selector(datePickerValueChanged), for:  .editingDidEnd) //.valueChanged)
+        contentView.randomSearchButton.addTarget(self, action: #selector(tapSearchButton), for: .touchUpInside)
         
         func bindViewToViewModel() {
             
-            contentView.searchTextField.textPublisher
-                .map { $0 }
-                .sink(receiveValue: { text in
-                    self.contentView.isRandomSearch = text.count < 3
-                    self.contentView.searchButton.setTitle(self.contentView.isRandomSearch ? "Random search" : "Search", for: .normal)
-                    self.searchText = text
-                    self.contentView.seachLabel.text = self.contentView.isRandomSearch ? "Enter more than TWO character to search" : "Erase all to RANDOM search"
-                })
-                .store(in: &bindings)
+            
         }
         
         func bindViewModelToView() {
@@ -77,9 +81,22 @@ final class SearchViewController: UIViewController {
         bindViewModelToView()
     }
     
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
+        print(#function, sender.date)
+        
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let selectedDate: String = dateFormatter.string(from: sender.date)
+        
+        let theAPOD = viewModel.getAPODsForDate(date: selectedDate)
+        
+        let detailsVC = DetailsViewController(storageManager: storageManager, apod: theAPOD, apodImage: (self.viewModel.dictionaryImageCache[theAPOD.url] ?? UIImage(named: "nasa-logo"))!)
+        navigationController?.pushViewController(detailsVC, animated: true)
+        
+    }
+    
     @objc func tapSearchButton() {
-        self.contentView.isRandomSearch
-                ? viewModel.searchRandomAPODs() : viewModel.searchAPODsForName(name: searchText)
+        viewModel.searchRandomAPODs(count: currentCountOfRandomAPODs)
     }
     
     private func setUpCollectonView() {
@@ -88,6 +105,9 @@ final class SearchViewController: UIViewController {
             forCellWithReuseIdentifier: APODsCollectionCell.identifier)
         
         contentView.collectionView.delegate = self
+        
+        contentView.countPicker.delegate = self
+        contentView.countPicker.dataSource = self
     }
     
     private func updateSections() {
@@ -100,7 +120,7 @@ final class SearchViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-    
+
 extension SearchViewController: UICollectionViewDelegate {
     
     private func configureDataSource() {
@@ -118,7 +138,7 @@ extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print(indexPath.row + 1)
+        if AppConstants.debug { print(indexPath.row + 1) }
         
         // Get selected hero using index path
         guard let selectedAPOD = dataSource.itemIdentifier(for: indexPath) else {
@@ -127,8 +147,48 @@ extension SearchViewController: UICollectionViewDelegate {
         }
         
         print("Selected:", selectedAPOD.date, selectedAPOD.url)
-            
+        
         let detailsVC = DetailsViewController(storageManager: storageManager, apod: selectedAPOD, apodImage: (self.viewModel.dictionaryImageCache[selectedAPOD.url] ?? UIImage(named: "nasa-logo"))!)
         navigationController?.pushViewController(detailsVC, animated: true)
     }
+}
+
+extension SearchViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        
+        let titleData = String(countPickerDataSource[row])
+        
+        let titleParagraphStyle = NSMutableParagraphStyle()
+        titleParagraphStyle.alignment = .center
+        
+        let myTitle = NSAttributedString(string: titleData,
+                                         attributes: [
+                                            NSAttributedString.Key.font:UIFont(name: "Georgia", size: 18.0)!,
+                                            NSAttributedString.Key.foregroundColor:UIColor.systemBlue,
+                                            NSAttributedString.Key.paragraphStyle:titleParagraphStyle,
+                                         ])
+        
+        pickerLabel.attributedText = myTitle
+        
+        return pickerLabel
+    }
+        
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent  component: Int) {
+        currentCountOfRandomAPODs = countPickerDataSource[row]
+        if AppConstants.debug { print(currentCountOfRandomAPODs) }
+    }
+}
+
+extension SearchViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countPickerDataSource.count
+    }
+    
 }
