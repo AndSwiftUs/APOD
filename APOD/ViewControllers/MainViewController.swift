@@ -14,7 +14,16 @@ class MainViewController: UIViewController {
         view.backgroundColor = .systemBlue
         
         setUpNasaLogoImage()
-        setUpLoginButton()
+        
+        if Prefs.shared.isNotFirstLaunch {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.didTapLoginButton()
+            }
+        } else {
+            setUpLoginButton()
+            Prefs.shared.isNotFirstLaunch = true
+        }
+        if AppConstants.debug { print(#function, "isNotFirstLaunch: ", Prefs.shared.isNotFirstLaunch) }
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,7 +66,7 @@ class MainViewController: UIViewController {
         
         tabBarVC.modalPresentationStyle = .fullScreen
         
-        present(tabBarVC, animated: false)
+        present(tabBarVC, animated: true)
     }
     
     private func setUpNasaLogoImage() {

@@ -13,6 +13,7 @@
 		4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */; };
 		4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */; };
 		4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */; };
+		495420CD2890A24600A68BF0 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495420CC2890A24600A68BF0 /* Prefs.swift */; };
 		4969705E2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4969705C2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld */; };
 		496970652886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970632886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift */; };
 		496970662886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970642886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift */; };
@@ -55,6 +56,7 @@
 		4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVProgressHud.swift; sourceTree = "<group>"; };
 		4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCellViewModel.swift; sourceTree = "<group>"; };
 		4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCollectionCell.swift; sourceTree = "<group>"; };
+		495420CC2890A24600A68BF0 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
 		4969705D2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = APODCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		496970632886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APODInstance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		496970642886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APODInstance+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				DC68B22D2842A3660035C887 /* AppConstants.swift */,
 				496970672886AF7700F8D8C5 /* CoreDataStack.swift */,
 				496970692886AFAE00F8D8C5 /* MainStorageManager.swift */,
+				495420CC2890A24600A68BF0 /* Prefs.swift */,
 				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
 				490ED57B288979C9002D47E6 /* View */,
 				DC68B22C2842A3370035C887 /* ViewControllers */,
@@ -320,6 +323,7 @@
 				49CAB053288ADB1D0006A0F0 /* ZoomableDetailViewController.swift in Sources */,
 				4952C7B2287C4AA1002C5182 /* SearchViewModel.swift in Sources */,
 				49D0D9B92843AA0B00664977 /* NasaJSONsAPI.swift in Sources */,
+				495420CD2890A24600A68BF0 /* Prefs.swift in Sources */,
 				49D0D9B72843AA0B00664977 /* API.swift in Sources */,
 				4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */,
 				DC68B213284281440035C887 /* MainViewController.swift in Sources */,
