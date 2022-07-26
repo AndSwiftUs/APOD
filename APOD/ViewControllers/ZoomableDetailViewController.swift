@@ -34,7 +34,9 @@ class ZoomableDetailViewController: UIViewController {
 
                          if AppConstants.debug { print("Delete apod: ", String(date)) }
                          
-//                         MainStorageManager.deleteItem(apodInstance)
+                         MainStorageManager.shared.deleteItem(with: apodInstance)
+                         
+                         self.navigationController?.popViewController(animated: true)
                      })
         ]
     }
