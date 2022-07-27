@@ -18,13 +18,17 @@ class DetailsViewController: UIViewController {
     @objc func favouriteButtonTapped() {
         isFavourite.toggle()
         
+        CAVProgressHud.sharedInstance.show(withTitle: "Save data from NASA...")
+        
         guard let apod = apod,
               let apodImage = apodImage
         else { return }
-        
+
         storageManager.saveItem(with: apod, apodImage: apodImage) { error in
             self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
         }
+        
+        CAVProgressHud.sharedInstance.hide()
     }
     
     private lazy var contentView = APODView()

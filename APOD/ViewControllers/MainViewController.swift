@@ -36,23 +36,20 @@ class MainViewController: UIViewController {
         let vc1 = UINavigationController(rootViewController: SearchViewController(storageManager: storageManager))
         let vc2 = UINavigationController(rootViewController: FavouritesViewController()) //storageManager: storageManager))
         let vc3 = UINavigationController(rootViewController: CentralViewController(storeManager: storageManager))
-        let vc4 = UINavigationController(rootViewController: AboutViewController())
-        let vc5 = UINavigationController(rootViewController: SettingsViewController())
+        let vc4 = UINavigationController(rootViewController: SettingsViewController())
         
         vc1.title = AppConstants.ViewControllers.SearchVC.title
         vc2.title = AppConstants.ViewControllers.FavouritesVC.title
         vc3.title = AppConstants.ViewControllers.CentralVC.title
-        vc4.title = AppConstants.ViewControllers.AboutVC.title
-        vc5.title = AppConstants.ViewControllers.SettingsVC.title
+        vc4.title = AppConstants.ViewControllers.SettingsVC.title
         
-        tabBarVC.setViewControllers([vc1, vc2, vc3, vc4, vc5], animated: false)
+        tabBarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: false)
         
         guard let items = tabBarVC.tabBar.items else { return }
         let images = [
             AppConstants.ViewControllers.SearchVC.image,
             AppConstants.ViewControllers.FavouritesVC.image,
             AppConstants.ViewControllers.CentralVC.image,
-            AppConstants.ViewControllers.AboutVC.image,
             AppConstants.ViewControllers.SettingsVC.image
         ]
         

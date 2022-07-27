@@ -20,7 +20,7 @@ final class SearchViewModel {
         
         CAVProgressHud.sharedInstance.show(withTitle: "Loading data from NASA...")
         
-        guard let url = URL(string: "\(AppConstants.NASA.defaultNASAUrl)?count=\(count)&api_key=\(AppConstants.NASA.myAPIKEY)") else { return }
+        guard let url = URL(string: "\(AppConstants.NASA.defaultNASAUrl)?count=\(count)&api_key=\(Prefs.shared.userAPIKey)") else { return }
         
         let dataTaskPublisher = URLSession.shared.dataTaskPublisher(for: url)
         

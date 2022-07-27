@@ -13,6 +13,7 @@ class CentralViewController: UIViewController {
     private var isFavourite: Bool = false {
         didSet { favouriteButton.image = UIImage(systemName: isFavourite ? "star.fill" : "star") }
     }
+    
     @objc func favouriteButtonTapped() {
         isFavourite.toggle()
         storageManager.saveItem(with: currentAPOD!, apodImage: contentView.imageView.image!) { error in

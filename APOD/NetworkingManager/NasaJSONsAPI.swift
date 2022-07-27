@@ -22,7 +22,7 @@ enum NasaJSONsAPI: API {
     
     var parameters: [URLQueryItem] {
         return [URLQueryItem(name: "count", value: "12"),
-                URLQueryItem(name: "api_key", value: AppConstants.NASA.myAPIKEY)
+                URLQueryItem(name: "api_key", value: Prefs.shared.userAPIKey)
         ]
     }
 }
