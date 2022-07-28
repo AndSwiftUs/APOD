@@ -111,8 +111,8 @@ class SettingsViewController: UIViewController {
             isEnterValidApiKey = false
         } else {
             print(#function, "Need to Show tutorial ", tutorialNubmer)
-            if tutorialNubmer < 6 {
-                let filename = "tutorial_0\(tutorialNubmer)"
+            if tutorialNubmer < 10 {
+                let filename = "tutorial_\(tutorialNubmer)"
                 tutorialView.image = UIImage(named: filename)
                 print(#function, "Show tutorial ", tutorialNubmer, filename)
                 tutorialNubmer += 1
