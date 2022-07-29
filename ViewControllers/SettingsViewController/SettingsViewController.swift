@@ -53,15 +53,15 @@ class SettingsViewController: UIViewController {
         apiKeySaveButton.backgroundColor = .systemBlue
         
         NSLayoutConstraint.activate([
-            apiKeyTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPaggin),
+            apiKeyTextLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPadding),
             apiKeyTextLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 9/10),
             apiKeyTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            apiKeyTextField.topAnchor.constraint(equalTo: apiKeyTextLabel.bottomAnchor, constant: AppConstants.defaultPaggin),
+            apiKeyTextField.topAnchor.constraint(equalTo: apiKeyTextLabel.bottomAnchor, constant: AppConstants.defaultPadding),
             apiKeyTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 9/10),
             apiKeyTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            apiKeySaveButton.topAnchor.constraint(equalTo: apiKeyTextField.bottomAnchor, constant: AppConstants.defaultPaggin),
+            apiKeySaveButton.topAnchor.constraint(equalTo: apiKeyTextField.bottomAnchor, constant: AppConstants.defaultPadding),
             apiKeySaveButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 7/10),
             apiKeySaveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
         tutorialView.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-            tutorialView.topAnchor.constraint(equalTo: apiKeySaveButton.bottomAnchor, constant: AppConstants.defaultPaggin),
+            tutorialView.topAnchor.constraint(equalTo: apiKeySaveButton.bottomAnchor, constant: AppConstants.defaultPadding),
             tutorialView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tutorialView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tutorialView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

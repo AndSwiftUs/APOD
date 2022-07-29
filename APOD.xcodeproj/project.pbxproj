@@ -34,19 +34,19 @@
 		49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B52843AA0B00664977 /* NetworkingManager.swift */; };
 		49D0D9C02843C3C300664977 /* NasaInstanceOfTheDayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */; };
 		49D0D9C22843C7BD00664977 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C12843C7BD00664977 /* APOD.swift */; };
-		49D0D9C62844059400664977 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C52844059400664977 /* Extensions.swift */; };
+		49D0D9C62844059400664977 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C52844059400664977 /* UITextField+Extension.swift */; };
 		DC68B20F284281440035C887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B20E284281440035C887 /* AppDelegate.swift */; };
 		DC68B211284281440035C887 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B210284281440035C887 /* SceneDelegate.swift */; };
 		DC68B213284281440035C887 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B212284281440035C887 /* MainViewController.swift */; };
-		DC68B216284281440035C887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC68B214284281440035C887 /* Main.storyboard */; };
 		DC68B218284281460035C887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC68B217284281460035C887 /* Assets.xcassets */; };
-		DC68B21B284281460035C887 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC68B219284281460035C887 /* LaunchScreen.storyboard */; };
 		DC68B2232842A2300035C887 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2222842A2300035C887 /* SearchViewController.swift */; };
 		DC68B2252842A26E0035C887 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2242842A26E0035C887 /* FavouritesViewController.swift */; };
 		DC68B2272842A2970035C887 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2262842A2970035C887 /* CentralViewController.swift */; };
 		DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2282842A2D00035C887 /* AboutViewController.swift */; };
 		DC68B22B2842A3050035C887 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B22A2842A3050035C887 /* SettingsViewController.swift */; };
 		DC68B22E2842A3660035C887 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B22D2842A3660035C887 /* AppConstants.swift */; };
+		DC6C7CAB2893FA0200A94237 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */; };
+		DC7E6CAC2893F6A400A53F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,21 +77,21 @@
 		49D0D9B52843AA0B00664977 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaInstanceOfTheDayAPI.swift; sourceTree = "<group>"; };
 		49D0D9C12843C7BD00664977 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
-		49D0D9C52844059400664977 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		49D0D9C52844059400664977 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		DC68B20B284281440035C887 /* APOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC68B20E284281440035C887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC68B210284281440035C887 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DC68B212284281440035C887 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		DC68B215284281440035C887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC68B217284281460035C887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC68B21A284281460035C887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DC68B21C284281460035C887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC68B21C284281460035C887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Utilities/Info.plist; sourceTree = SOURCE_ROOT; };
 		DC68B2222842A2300035C887 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC68B2242842A26E0035C887 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		DC68B2262842A2970035C887 /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
 		DC68B2282842A2D00035C887 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DC68B22A2842A3050035C887 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DC68B22D2842A3660035C887 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,13 +192,40 @@
 			path = NetworkingManager;
 			sourceTree = "<group>";
 		};
-		DC68B202284281440035C887 = {
+		DC616D8A2893E7FC00DF5793 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DC68B217284281460035C887 /* Assets.xcassets */,
+				DC68B20E284281440035C887 /* AppDelegate.swift */,
+				DC68B210284281440035C887 /* SceneDelegate.swift */,
+				DC68B21C284281460035C887 /* Info.plist */,
+				DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DC616D8B2893E8C700DF5793 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				496970632886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift */,
 				496970642886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift */,
 				4969705C2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld */,
+				496970672886AF7700F8D8C5 /* CoreDataStack.swift */,
+				496970692886AFAE00F8D8C5 /* MainStorageManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DC68B202284281440035C887 = {
+			isa = PBXGroup;
+			children = (
+				DC6C7CA92893F7DC00A94237 /* Extentions */,
 				DC68B20D284281440035C887 /* APOD */,
+				DC616D8B2893E8C700DF5793 /* CoreData */,
+				490ED57B288979C9002D47E6 /* View */,
+				DC68B22C2842A3370035C887 /* ViewControllers */,
+				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
+				DC616D8A2893E7FC00DF5793 /* Utilities */,
 				DC68B20C284281440035C887 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -215,21 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				49D0D9C12843C7BD00664977 /* APOD.swift */,
-				DC68B20E284281440035C887 /* AppDelegate.swift */,
-				DC68B210284281440035C887 /* SceneDelegate.swift */,
-				DC68B214284281440035C887 /* Main.storyboard */,
-				DC68B217284281460035C887 /* Assets.xcassets */,
-				DC68B219284281460035C887 /* LaunchScreen.storyboard */,
-				DC68B21C284281460035C887 /* Info.plist */,
 				4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */,
-				49D0D9C52844059400664977 /* Extensions.swift */,
 				DC68B22D2842A3660035C887 /* AppConstants.swift */,
-				496970672886AF7700F8D8C5 /* CoreDataStack.swift */,
-				496970692886AFAE00F8D8C5 /* MainStorageManager.swift */,
 				495420CC2890A24600A68BF0 /* Prefs.swift */,
-				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
-				490ED57B288979C9002D47E6 /* View */,
-				DC68B22C2842A3370035C887 /* ViewControllers */,
 			);
 			path = APOD;
 			sourceTree = "<group>";
@@ -247,6 +262,15 @@
 				49BD279D288318DC000E8766 /* SettingsViewController */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DC6C7CA92893F7DC00A94237 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				49D0D9C52844059400664977 /* UITextField+Extension.swift */,
+				DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,9 +331,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC68B21B284281460035C887 /* LaunchScreen.storyboard in Resources */,
 				DC68B218284281460035C887 /* Assets.xcassets in Resources */,
-				DC68B216284281440035C887 /* Main.storyboard in Resources */,
+				DC7E6CAC2893F6A400A53F33 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +358,8 @@
 				4952C7AA287B470D002C5182 /* AboutSwiftUIView.swift in Sources */,
 				496970682886AF7700F8D8C5 /* CoreDataStack.swift in Sources */,
 				DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */,
-				49D0D9C62844059400664977 /* Extensions.swift in Sources */,
+				49D0D9C62844059400664977 /* UITextField+Extension.swift in Sources */,
+				DC6C7CAB2893FA0200A94237 /* UIImageView+Extension.swift in Sources */,
 				496970662886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift in Sources */,
 				49D0D9C22843C7BD00664977 /* APOD.swift in Sources */,
 				4969707628886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift in Sources */,
@@ -361,25 +385,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DC68B214284281440035C887 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC68B215284281440035C887 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC68B219284281460035C887 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC68B21A284281460035C887 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DC68B21D284281460035C887 /* Debug */ = {
@@ -432,10 +437,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Utilities/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = APOD;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -486,9 +493,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Utilities/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = APOD;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -505,10 +514,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UH3GS9823U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = APOD/Info.plist;
+				INFOPLIST_FILE = Utilities/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save favourite Astronomic picture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -517,7 +525,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.and.us.digital.APOD;
+				PRODUCT_BUNDLE_IDENTIFIER = and.us.APOD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -534,10 +542,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UH3GS9823U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = APOD/Info.plist;
+				INFOPLIST_FILE = Utilities/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save favourite Astronomic picture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -546,7 +553,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.and.us.digital.APOD;
+				PRODUCT_BUNDLE_IDENTIFIER = and.us.APOD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

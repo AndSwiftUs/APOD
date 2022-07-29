@@ -40,7 +40,7 @@ final class FavouritesTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             apodImageView.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                               constant: AppConstants.defaultPaggin),
+                                               constant: AppConstants.defaultPadding),
             apodImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             apodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             apodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -49,14 +49,14 @@ final class FavouritesTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             apodDateLabel.topAnchor.constraint(equalTo: apodImageView.topAnchor,
-                                               constant: AppConstants.defaultThinPaggin),
+                                               constant: AppConstants.defaultThinPadding),
             apodDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                    constant: -AppConstants.defaultThinPaggin),
+                                                    constant: -AppConstants.defaultThinPadding),
             
             apodTitleLabel.bottomAnchor.constraint(equalTo: apodImageView.bottomAnchor,
-                                                   constant: -AppConstants.defaultThinPaggin),
+                                                   constant: -AppConstants.defaultThinPadding),
             apodTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                    constant: AppConstants.defaultThinPaggin),
+                                                    constant: AppConstants.defaultThinPadding),
         ])
         
     }

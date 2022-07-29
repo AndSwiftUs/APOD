@@ -75,10 +75,7 @@ class CentralViewController: UIViewController {
               let url = //currentAPOD?.hdurl ??
                 currentAPOD?.url
         else { return }
-        
-        //debug
-        if AppConstants.debug { print(#function, "trying get image ", String(describing: currentAPOD?.date), " from: ", url) }
-        
+               
         contentView.imageView.loadImageFromURL(imageUrlString: url)
     }
     

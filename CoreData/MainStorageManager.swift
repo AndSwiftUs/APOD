@@ -5,7 +5,7 @@ class MainStorageManager {
     
     static let shared = MainStorageManager()
     
-    let coreDataStack = CoreDataStack()
+    private let coreDataStack = CoreDataStack()
     
     lazy var fetchedResultsController: NSFetchedResultsController<APODInstance> = {
         let fetchRequest = APODInstance.fetchRequest()
@@ -50,17 +50,13 @@ class MainStorageManager {
         newAPOD.date = apod.date
         newAPOD.imageData = apodImage.pngData()
         newAPOD.createdAt = Date()
-        
-        if AppConstants.debug { print(#function, " Save APOD: ", newAPOD.date!) }
-        
+                
         coreDataStack.saveContext()
     }
     
     func deleteItem(with apodInstance: APODInstance) {
         let context = coreDataStack.managedContext
-        
         context.delete(apodInstance)
-        
         coreDataStack.saveContext()
     }
 }

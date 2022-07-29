@@ -23,7 +23,6 @@ class MainViewController: UIViewController {
             setUpLoginButton()
             Prefs.shared.isNotFirstLaunch = true
         }
-        if AppConstants.debug { print(#function, "isNotFirstLaunch: ", Prefs.shared.isNotFirstLaunch) }
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,7 +58,6 @@ class MainViewController: UIViewController {
         
         // делаем текущим 3й вью
         tabBarVC.selectedIndex = 2
-        if AppConstants.debug { tabBarVC.selectedIndex = 0 }
         
         tabBarVC.modalPresentationStyle = .fullScreen
         

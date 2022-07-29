@@ -3,6 +3,8 @@ import Foundation
 class Prefs {
     private let defaults = UserDefaults.standard
     
+    static let shared = Prefs()
+    
     private let isNotFirstLaunchKey = "isNotFirstLaunch"
     var isNotFirstLaunch: Bool {
         set { defaults.setValue(newValue, forKey: isNotFirstLaunchKey) }
@@ -13,13 +15,5 @@ class Prefs {
     var userAPIKey: String {
         set { defaults.setValue(newValue, forKey: userAPIKeyKey) }
         get { return defaults.string(forKey: userAPIKeyKey) ?? AppConstants.NASA.defaultAPIKey }
-    }
-    
-    class var shared: Prefs {
-        struct Static {
-            static let instance = Prefs()
-        }
-        
-        return Static.instance
     }
 }

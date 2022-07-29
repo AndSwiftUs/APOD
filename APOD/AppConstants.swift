@@ -2,13 +2,11 @@ import Foundation
 import UIKit
 
 struct AppConstants {
-    
-    static let debug = true
-    
+        
     static let defaultCountOfRandomAPODs    = 6
     
-    static let defaultThinPaggin      = CGFloat( 4 )
-    static let defaultPaggin          = CGFloat( 16 )
+    static let defaultThinPadding:CGFloat = 4
+    static let defaultPadding:CGFloat = 16
 
     struct ViewControllers {
         

@@ -81,7 +81,7 @@ final class APODView: UIView {
             
             imageNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageNameLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultPaggin),
+            imageNameLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultPadding),
             
             pageScrollingView.topAnchor.constraint(equalTo: imageNameLabel.bottomAnchor),
             pageScrollingView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
@@ -91,7 +91,7 @@ final class APODView: UIView {
             
             zoomView.topAnchor.constraint(equalTo: pageScrollingView.topAnchor),
             zoomView.centerXAnchor.constraint(equalTo: pageScrollingView.centerXAnchor),
-            zoomView.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultThinPaggin),
+            zoomView.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultThinPadding),
             zoomView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 7/10),
             
             imageView.topAnchor.constraint(equalTo: zoomView.topAnchor),
@@ -99,7 +99,7 @@ final class APODView: UIView {
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 7/10),
             
-            imageTextLabel.topAnchor.constraint(equalTo: zoomView.bottomAnchor, constant: AppConstants.defaultThinPaggin),
+            imageTextLabel.topAnchor.constraint(equalTo: zoomView.bottomAnchor, constant: AppConstants.defaultThinPadding),
             imageTextLabel.widthAnchor.constraint(equalTo: pageScrollingView.widthAnchor, multiplier: 9/10),
             imageTextLabel.centerXAnchor.constraint(equalTo: pageScrollingView.centerXAnchor),
             imageTextLabel.bottomAnchor.constraint(equalTo: pageScrollingView.bottomAnchor),

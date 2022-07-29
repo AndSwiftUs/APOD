@@ -35,32 +35,32 @@ final class SearchView : UIView {
         
         NSLayoutConstraint.activate([
                         
-            datePickerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPaggin),
-            datePickerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPaggin),
+            datePickerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPadding),
+            datePickerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPadding),
             datePickerLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 2/3),
             datePickerLabel.heightAnchor.constraint(equalTo: datePicker.heightAnchor),
             
-            datePicker.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPaggin),
+            datePicker.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPadding),
             datePicker.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3),
-            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -AppConstants.defaultThinPaggin),
+            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -AppConstants.defaultThinPadding),
                         
-            randomSeachLabel.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultPaggin),
-            randomSeachLabel.widthAnchor.constraint(equalTo: datePickerLabel.widthAnchor, constant: -56 - AppConstants.defaultThinPaggin),
-            randomSeachLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPaggin),
+            randomSeachLabel.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultPadding),
+            randomSeachLabel.widthAnchor.constraint(equalTo: datePickerLabel.widthAnchor, constant: -56 - AppConstants.defaultThinPadding),
+            randomSeachLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPadding),
                         
-            countPicker.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultThinPaggin),
-            countPicker.leadingAnchor.constraint(equalTo: randomSeachLabel.trailingAnchor, constant: AppConstants.defaultPaggin),
-            countPicker.trailingAnchor.constraint(equalTo: randomSearchButton.leadingAnchor, constant: -AppConstants.defaultPaggin),
+            countPicker.topAnchor.constraint(equalTo: datePickerLabel.bottomAnchor, constant: AppConstants.defaultThinPadding),
+            countPicker.leadingAnchor.constraint(equalTo: randomSeachLabel.trailingAnchor, constant: AppConstants.defaultPadding),
+            countPicker.trailingAnchor.constraint(equalTo: randomSearchButton.leadingAnchor, constant: -AppConstants.defaultPadding),
             countPicker.heightAnchor.constraint(lessThanOrEqualToConstant: 80),
             countPicker.widthAnchor.constraint(lessThanOrEqualToConstant: 56),
             countPicker.centerYAnchor.constraint(equalTo: randomSearchButton.centerYAnchor),
             
-            randomSearchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.defaultThinPaggin),
+            randomSearchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -AppConstants.defaultThinPadding),
             randomSearchButton.centerYAnchor.constraint(equalTo: randomSeachLabel.centerYAnchor),
             
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: randomSeachLabel.bottomAnchor, constant: AppConstants.defaultPaggin),
+            collectionView.topAnchor.constraint(equalTo: randomSeachLabel.bottomAnchor, constant: AppConstants.defaultPadding),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
 
         ])

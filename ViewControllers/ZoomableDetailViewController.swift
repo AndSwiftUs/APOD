@@ -28,11 +28,8 @@ class ZoomableDetailViewController: UIViewController {
                      attributes: .destructive,
                      handler: { [weak self] _ in
                          guard let self = self,
-                               let apodInstance = self.apodInstance,
-                               let date = apodInstance.date
+                               let apodInstance = self.apodInstance
                          else { return }
-
-                         if AppConstants.debug { print("Delete apod: ", String(date)) }
                          
                          MainStorageManager.shared.deleteItem(with: apodInstance)
                          

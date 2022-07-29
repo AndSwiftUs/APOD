@@ -137,9 +137,7 @@ extension SearchViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if AppConstants.debug { print(indexPath.row + 1) }
-        
+                
         // Get selected hero using index path
         guard let selectedAPOD = dataSource.itemIdentifier(for: indexPath) else {
             collectionView.deselectItem(at: indexPath, animated: true)
@@ -177,7 +175,6 @@ extension SearchViewController: UIPickerViewDelegate {
         
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent  component: Int) {
         currentCountOfRandomAPODs = countPickerDataSource[row]
-        if AppConstants.debug { print(currentCountOfRandomAPODs) }
     }
 }
 

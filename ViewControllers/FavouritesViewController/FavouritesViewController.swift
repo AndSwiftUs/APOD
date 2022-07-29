@@ -91,21 +91,17 @@ extension FavouritesViewController: UITableViewDataSource {
         
         cell.viewModel = FavouritesTableViewCellViewModel(apod: apodInstance)
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return contentView.frame.width - AppConstants.defaultThinPaggin * 2
+        return contentView.frame.width - AppConstants.defaultThinPadding * 2
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                        
-        print("FVC Selected: ", indexPath.row + 1)
-        
+                                
         let selectedAPODInstance = viewModel.APODsArray[indexPath.row]
             
         let zoomableVC = ZoomableDetailViewController(apodInstance: selectedAPODInstance)
-        
         navigationController?.pushViewController(zoomableVC, animated: true)
     }
     

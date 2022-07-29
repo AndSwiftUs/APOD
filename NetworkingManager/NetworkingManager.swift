@@ -22,10 +22,7 @@ class NetworkingManager {
         urlRequest.httpMethod = endpoint.method.rawValue
         
         let session = URLSession(configuration: .default)
-        
-        //debug
-        if AppConstants.debug { print(#function, urlRequest) }
-        
+                
         let dataTask = session.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
                 completion(.failure(.unableToComplete))
@@ -42,21 +39,13 @@ class NetworkingManager {
                 completion(.failure(.invalidData))
                 return
             }
-            
-            //debug
-            if AppConstants.debug { print("\nData: ", #function, data) }
-            
+                      
             do {
                 let responseObject = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(responseObject))
-                //debug
-                if AppConstants.debug { print("\nResponseObject: ", #function, responseObject) }
-
             } catch {
                 completion(.failure(.invalidData))
             }
-
-            if AppConstants.debug { print("\nRequest complete. ") }
         }
         
         dataTask.resume()

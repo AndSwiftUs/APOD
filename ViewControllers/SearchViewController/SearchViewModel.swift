@@ -56,7 +56,6 @@ final class SearchViewModel {
                     .receive(on: DispatchQueue.main)
                     .sink(receiveValue: { image in
                         self.dictionaryImageCache[apod.url] = image
-                        if AppConstants.debug { print(#function, "APOD image load from: ", apod.url, " ", image?.size ?? "no image") }
                     })
                     .store(in: &bindings)
             }
