@@ -12,6 +12,7 @@ class ZoomableDetailViewController: UIViewController {
                      attributes: .disabled,
                      handler: { (_) in
                      }),
+            
             UIAction(title: "Save to PhotoAlbum",
                      image: UIImage(systemName: "square.and.arrow.down.fill"),
                      handler: { [weak self] _ in
@@ -23,6 +24,7 @@ class ZoomableDetailViewController: UIViewController {
                                                         #selector(self.image(_:didFinishSavingWithError:contextInfo:)),
                                                         nil)
                      }),
+            
             UIAction(title: "Remove from Favourites",
                      image: UIImage(systemName: "trash"),
                      attributes: .destructive,

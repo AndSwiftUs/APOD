@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class FavouritesViewModel {
+class FavoritesViewModel {
         
     @Published var APODsArray: [APODInstance] = []
     
@@ -11,5 +11,4 @@ class FavouritesViewModel {
         APODsArray = MainStorageManager.shared.getAllItemsReversed()
         return
     }
-    
 }

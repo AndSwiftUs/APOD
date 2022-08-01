@@ -17,7 +17,6 @@ class AboutViewController: UIViewController {
         self.view.addSubview(hosingFile.view)
         view.addConstrained(subview: hosingFile.view)
         hosingFile.didMove(toParent: self)
-        
     }
 }
 

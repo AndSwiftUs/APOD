@@ -1,10 +1,10 @@
 import UIKit
+import Combine
 
-final class FavouritesTableViewCell: UITableViewCell {
+final class APODsCollectionCell: UICollectionViewCell {
+    static let identifier = "APODsTableViewCell"
     
-    static let identifier = "FavouritesTableViewCell"
-    
-    var viewModel: FavouritesTableViewCellViewModel! {
+    var viewModel: APODsCellViewModel! {
         didSet { setUpViewModel() }
     }
     
@@ -12,8 +12,8 @@ final class FavouritesTableViewCell: UITableViewCell {
     var apodTitleLabel = UILabel()
     var apodImageView = UIImageView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
         addSubiews()
         setUpConstraints()
@@ -24,7 +24,6 @@ final class FavouritesTableViewCell: UITableViewCell {
     }
     
     private func addSubiews() {
-        
         contentView.addSubview(apodImageView)
         apodImageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -33,32 +32,24 @@ final class FavouritesTableViewCell: UITableViewCell {
         
         apodImageView.addSubview(apodTitleLabel)
         apodTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     private func setUpConstraints() {
-        
         NSLayoutConstraint.activate([
-            apodImageView.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                               constant: AppConstants.defaultPadding),
-            apodImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            apodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            apodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            apodImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            contentView.topAnchor.constraint(equalTo: apodImageView.topAnchor),
+            contentView.centerXAnchor.constraint(equalTo: apodImageView.centerXAnchor),
+            contentView.bottomAnchor.constraint(equalTo: apodImageView.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: apodImageView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: apodImageView.trailingAnchor),
         ])
         
         NSLayoutConstraint.activate([
-            apodDateLabel.topAnchor.constraint(equalTo: apodImageView.topAnchor,
-                                               constant: AppConstants.defaultThinPadding),
-            apodDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                    constant: -AppConstants.defaultThinPadding),
+            apodDateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            apodDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
             
-            apodTitleLabel.bottomAnchor.constraint(equalTo: apodImageView.bottomAnchor,
-                                                   constant: -AppConstants.defaultThinPadding),
-            apodTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                    constant: AppConstants.defaultThinPadding),
+            apodTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            apodTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
         ])
-        
     }
     
     private func setUpViewModel() {
@@ -78,9 +69,8 @@ final class FavouritesTableViewCell: UITableViewCell {
         
         apodImageView.image = viewModel.apodImage
         apodImageView.clipsToBounds = true
-        apodImageView.layer.cornerRadius = 8
-        apodImageView.layer.shadowRadius = 8
-        apodImageView.contentMode = .scaleToFill
+        apodImageView.layer.cornerRadius = 4
+        apodImageView.layer.shadowRadius = 4
     }
     
     override func prepareForReuse() {

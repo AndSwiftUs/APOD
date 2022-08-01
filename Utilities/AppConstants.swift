@@ -17,8 +17,8 @@ struct AppConstants {
             static let largeTitles = true
         }
         
-        struct FavouritesVC {
-            static let title = "Favourites"
+        struct FavoritesVC {
+            static let title = "Favorites"
             static let image = "star"
             static let bgColor = UIColor.systemGray6
             static let largeTitles = true

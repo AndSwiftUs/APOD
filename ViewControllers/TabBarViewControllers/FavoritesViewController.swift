@@ -1,16 +1,13 @@
 import UIKit
 import Combine
 
-class FavouritesViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     
-    private lazy var contentView = FavouritesView()
-    private let viewModel: FavouritesViewModel
+    private lazy var contentView = FavoritesView()
+    private let viewModel: FavoritesViewModel
     private var bindings = Set<AnyCancellable>()
-    
-//    private let storageManager: MainStorageManager
-    
-    init(//storageManager: MainStorageManager,
-         viewModel: FavouritesViewModel = FavouritesViewModel())
+        
+    init(viewModel: FavoritesViewModel = FavoritesViewModel())
     {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -30,7 +27,6 @@ class FavouritesViewController: UIViewController {
         
         setupUI()
         setUpBindings()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +37,8 @@ class FavouritesViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = AppConstants.ViewControllers.FavouritesVC.bgColor
-        title = AppConstants.ViewControllers.FavouritesVC.title
+        view.backgroundColor = AppConstants.ViewControllers.FavoritesVC.bgColor
+        title = AppConstants.ViewControllers.FavoritesVC.title
         
         setupTableView()
     }
@@ -54,11 +50,10 @@ class FavouritesViewController: UIViewController {
         contentView.tableView.estimatedRowHeight = 200
         contentView.tableView.rowHeight = UITableView.automaticDimension
         
-        contentView.tableView.register(FavouritesTableViewCell.self, forCellReuseIdentifier: "FavouritesTableViewCell")
+        contentView.tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: "FavouritesTableViewCell")
     }
     
     private func setUpBindings() {
-        
         bindViewModelToView()
         
         func bindViewModelToView() {
@@ -73,23 +68,21 @@ class FavouritesViewController: UIViewController {
     }
 }
 
-extension FavouritesViewController: UITableViewDelegate {
+extension FavoritesViewController: UITableViewDelegate {
     
 }
 
-extension FavouritesViewController: UITableViewDataSource {
-    
+extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.APODsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavouritesTableViewCell.identifier, for: indexPath) as? FavouritesTableViewCell else { return UITableViewCell()  }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell()  }
         
         let apodInstance = viewModel.APODsArray[indexPath.row]
         
-        cell.viewModel = FavouritesTableViewCellViewModel(apod: apodInstance)
+        cell.viewModel = FavoritesTableViewCellViewModel(apod: apodInstance)
         return cell
     }
     
@@ -98,11 +91,9 @@ extension FavouritesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                                
         let selectedAPODInstance = viewModel.APODsArray[indexPath.row]
             
         let zoomableVC = ZoomableDetailViewController(apodInstance: selectedAPODInstance)
         navigationController?.pushViewController(zoomableVC, animated: true)
     }
-    
 }

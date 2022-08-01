@@ -21,7 +21,6 @@ final class APODView: UIView {
     }
     
     private func addSubviews() {
-                
         addSubview(imageNameLabel)
         imageNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,11 +35,9 @@ final class APODView: UIView {
         
         pageScrollingView.addSubview(imageTextLabel)
         imageTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     private func setUpViews() {
-                        
         imageNameLabel.textAlignment = .center
         imageNameLabel.adjustsFontSizeToFitWidth = true
         imageNameLabel.numberOfLines = 1
@@ -78,7 +75,6 @@ final class APODView: UIView {
     
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            
             imageNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageNameLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -AppConstants.defaultPadding),
@@ -103,7 +99,6 @@ final class APODView: UIView {
             imageTextLabel.widthAnchor.constraint(equalTo: pageScrollingView.widthAnchor, multiplier: 9/10),
             imageTextLabel.centerXAnchor.constraint(equalTo: pageScrollingView.centerXAnchor),
             imageTextLabel.bottomAnchor.constraint(equalTo: pageScrollingView.bottomAnchor),
-            
         ])
     }
 }
@@ -113,5 +108,4 @@ extension APODView: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
 }

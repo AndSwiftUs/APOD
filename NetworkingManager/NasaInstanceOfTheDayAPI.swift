@@ -21,7 +21,7 @@ enum NasaInstanceOfTheDayAPI: API {
     }
     
     var parameters: [URLQueryItem] {
-        return [URLQueryItem(name: "api_key", value: Prefs.shared.userAPIKey)
+        return [URLQueryItem(name: "api_key", value: SavedUserPrefs.shared.userAPIKey)
         ]
     }
 }

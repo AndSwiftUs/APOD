@@ -12,7 +12,7 @@ final class SearchViewController: UIViewController {
     private let storageManager: MainStorageManager
     private var bindings = Set<AnyCancellable>()
     
-    let countPickerDataSource = [2, 4, 6, 10, 20, 30, 50]
+    let countPickerDataSource = [2, 4, 6, 10, 20, 30]
     var currentCountOfRandomAPODs = AppConstants.defaultCountOfRandomAPODs
     
     var searchText: String = ""
@@ -53,11 +53,10 @@ final class SearchViewController: UIViewController {
     
     private func setUpBindings() {
         
-        contentView.datePicker.addTarget(self, action: #selector(datePickerValueChanged), for:  .editingDidEnd) //.valueChanged)
+        contentView.datePicker.addTarget(self, action: #selector(datePickerValueChanged), for:  .editingDidEnd)
         contentView.randomSearchButton.addTarget(self, action: #selector(tapSearchButton), for: .touchUpInside)
         
         func bindViewToViewModel() {
-            
             
         }
         
@@ -82,8 +81,6 @@ final class SearchViewController: UIViewController {
     }
     
     @objc func datePickerValueChanged(sender: UIDatePicker) {
-        print(#function, sender.date)
-        
         let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let selectedDate: String = dateFormatter.string(from: sender.date)
@@ -92,7 +89,6 @@ final class SearchViewController: UIViewController {
         
         let detailsVC = DetailsViewController(storageManager: storageManager, apod: theAPOD, apodImage: (self.viewModel.dictionaryImageCache[theAPOD.url] ?? UIImage(named: "nasa-logo"))!)
         navigationController?.pushViewController(detailsVC, animated: true)
-        
     }
     
     @objc func tapSearchButton() {
@@ -137,8 +133,6 @@ extension SearchViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                
-        // Get selected hero using index path
         guard let selectedAPOD = dataSource.itemIdentifier(for: indexPath) else {
             collectionView.deselectItem(at: indexPath, animated: true)
             return
@@ -152,7 +146,6 @@ extension SearchViewController: UICollectionViewDelegate {
 }
 
 extension SearchViewController: UIPickerViewDelegate {
-    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         
@@ -179,7 +172,6 @@ extension SearchViewController: UIPickerViewDelegate {
 }
 
 extension SearchViewController: UIPickerViewDataSource {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -187,5 +179,4 @@ extension SearchViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return countPickerDataSource.count
     }
-    
 }

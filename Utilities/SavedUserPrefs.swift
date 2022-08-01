@@ -1,9 +1,9 @@
 import Foundation
 
-class Prefs {
+class SavedUserPrefs {
     private let defaults = UserDefaults.standard
     
-    static let shared = Prefs()
+    static let shared = SavedUserPrefs()
     
     private let isNotFirstLaunchKey = "isNotFirstLaunch"
     var isNotFirstLaunch: Bool {

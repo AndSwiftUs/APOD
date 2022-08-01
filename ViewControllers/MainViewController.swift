@@ -15,13 +15,13 @@ class MainViewController: UIViewController {
         
         setUpNasaLogoImage()
         
-        if Prefs.shared.isNotFirstLaunch {
+        if SavedUserPrefs.shared.isNotFirstLaunch {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.didTapLoginButton()
             }
         } else {
             setUpLoginButton()
-            Prefs.shared.isNotFirstLaunch = true
+            SavedUserPrefs.shared.isNotFirstLaunch = true
         }
     }
     
@@ -33,12 +33,12 @@ class MainViewController: UIViewController {
         let tabBarVC = UITabBarController()
         
         let vc1 = UINavigationController(rootViewController: SearchViewController(storageManager: storageManager))
-        let vc2 = UINavigationController(rootViewController: FavouritesViewController()) //storageManager: storageManager))
+        let vc2 = UINavigationController(rootViewController: FavoritesViewController())
         let vc3 = UINavigationController(rootViewController: CentralViewController(storeManager: storageManager))
         let vc4 = UINavigationController(rootViewController: SettingsViewController())
         
         vc1.title = AppConstants.ViewControllers.SearchVC.title
-        vc2.title = AppConstants.ViewControllers.FavouritesVC.title
+        vc2.title = AppConstants.ViewControllers.FavoritesVC.title
         vc3.title = AppConstants.ViewControllers.CentralVC.title
         vc4.title = AppConstants.ViewControllers.SettingsVC.title
         
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         guard let items = tabBarVC.tabBar.items else { return }
         let images = [
             AppConstants.ViewControllers.SearchVC.image,
-            AppConstants.ViewControllers.FavouritesVC.image,
+            AppConstants.ViewControllers.FavoritesVC.image,
             AppConstants.ViewControllers.CentralVC.image,
             AppConstants.ViewControllers.SettingsVC.image
         ]
@@ -106,5 +106,4 @@ class MainViewController: UIViewController {
         
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
-    
 }

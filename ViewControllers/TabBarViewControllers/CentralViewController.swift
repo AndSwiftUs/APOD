@@ -15,9 +15,11 @@ class CentralViewController: UIViewController {
     }
     
     @objc func favouriteButtonTapped() {
-        isFavourite.toggle()
-        storageManager.saveItem(with: currentAPOD!, apodImage: contentView.imageView.image!) { error in
-            self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
+        if !isFavourite {
+            storageManager.saveItem(with: currentAPOD!, apodImage: contentView.imageView.image!) { error in
+                self.contentView.imageView.image = UIImage(named: "nasa-logo-error-connection")
+            }
+            isFavourite = true
         }
     }
     
@@ -25,7 +27,7 @@ class CentralViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 guard let title = self.currentAPOD?.title,
-                      //                      let url = self.currentAPOD?.url,
+                      // let url = self.currentAPOD?.url,
                       let explanation = self.currentAPOD?.explanation
                 else { return }
                 
@@ -38,7 +40,6 @@ class CentralViewController: UIViewController {
                 }
                 
                 self.fetchImageFromCurrentInstance()
-                
             }
         }
     }
@@ -75,13 +76,12 @@ class CentralViewController: UIViewController {
               let url = //currentAPOD?.hdurl ??
                 currentAPOD?.url
         else { return }
-               
+        
         contentView.imageView.loadImageFromURL(imageUrlString: url)
     }
     
     func fetchInstanceOfTheDayWithNetworkingManager() {
         networkingManager.request(endpoint: NasaInstanceOfTheDayAPI.nasa) { (result: Result<APOD, NetworkingError>) in
-            
             switch result {
             case .success(let apod):
                 self.currentAPOD = apod

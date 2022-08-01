@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Combine
 
-final class FavouritesTableViewCellViewModel {
+final class FavoritesTableViewCellViewModel {
     
     @Published var apodDate: String = ""
     @Published var apodTile: String = ""

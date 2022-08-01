@@ -39,6 +39,7 @@ Detailed pictures and explanations of Universe, amazing facts related to space a
 The largest and most popular platform for people-powered research.
 
 Powered by\nPublic NASA API: https://api.nasa.gov
+
 """)
                 .font(.body)
                 .fontWeight(.regular)

@@ -32,9 +32,7 @@ final class SearchView : UIView {
     }
     
     private func setUpConstraints() {
-        
         NSLayoutConstraint.activate([
-                        
             datePickerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: AppConstants.defaultThinPadding),
             datePickerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: AppConstants.defaultThinPadding),
             datePickerLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 2/3),
@@ -62,16 +60,13 @@ final class SearchView : UIView {
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: randomSeachLabel.bottomAnchor, constant: AppConstants.defaultPadding),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-
         ])
     }
     
     private func setUpViews() {
-        
         collectionView.backgroundColor = .systemBackground
         
         datePicker.datePickerMode = .date
-        
         datePickerLabel.numberOfLines = 1
         datePickerLabel.textColor = .systemGray
         datePickerLabel.text = "Choose date to search"
@@ -88,7 +83,7 @@ final class SearchView : UIView {
         ])
 
         randomSearchButton.setAttributedTitle(customButtonTitle, for: .normal)
-                randomSearchButton.backgroundColor = .systemBlue
+        randomSearchButton.backgroundColor = .systemBlue
         randomSearchButton.layer.cornerRadius = 5.0
         randomSearchButton.layer.masksToBounds = true
         randomSearchButton.titleLabel?.numberOfLines = 2
@@ -116,7 +111,8 @@ final class SearchView : UIView {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
-        
+
+        //horizontal: 
 //        section.orthogonalScrollingBehavior = .continuous
         
         return UICollectionViewCompositionalLayout(section: section)

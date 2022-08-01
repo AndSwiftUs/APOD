@@ -1,6 +1,6 @@
 import UIKit
 
-class FavouritesView: UIView {
+class FavoritesView: UIView {
     
     lazy var tableView = UITableView()
 
@@ -31,6 +31,6 @@ class FavouritesView: UIView {
     }
     
     private func setUpViews() {
-        tableView.backgroundColor = AppConstants.ViewControllers.FavouritesVC.bgColor
+        tableView.backgroundColor = AppConstants.ViewControllers.FavoritesVC.bgColor
     }
 }

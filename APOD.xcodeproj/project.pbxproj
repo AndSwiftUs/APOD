@@ -13,16 +13,16 @@
 		4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */; };
 		4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */; };
 		4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */; };
-		495420CD2890A24600A68BF0 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495420CC2890A24600A68BF0 /* Prefs.swift */; };
+		495420CD2890A24600A68BF0 /* SavedUserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495420CC2890A24600A68BF0 /* SavedUserPrefs.swift */; };
 		4969705E2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4969705C2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld */; };
 		496970652886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970632886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift */; };
 		496970662886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970642886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift */; };
 		496970682886AF7700F8D8C5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970672886AF7700F8D8C5 /* CoreDataStack.swift */; };
 		4969706A2886AFAE00F8D8C5 /* MainStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970692886AFAE00F8D8C5 /* MainStorageManager.swift */; };
-		4969706E2887403100F8D8C5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969706D2887403100F8D8C5 /* FavouritesView.swift */; };
-		496970702887407000F8D8C5 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969706F2887407000F8D8C5 /* FavouritesViewModel.swift */; };
-		496970742888496F00F8D8C5 /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970732888496F00F8D8C5 /* FavouritesTableViewCell.swift */; };
-		4969707628886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */; };
+		4969706E2887403100F8D8C5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969706D2887403100F8D8C5 /* FavoritesView.swift */; };
+		496970702887407000F8D8C5 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969706F2887407000F8D8C5 /* FavoritesViewModel.swift */; };
+		496970742888496F00F8D8C5 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496970732888496F00F8D8C5 /* FavoritesTableViewCell.swift */; };
+		4969707628886BE700F8D8C5 /* FavoritesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969707528886BE700F8D8C5 /* FavoritesTableViewCellViewModel.swift */; };
 		499FDE4C287DACCB00AB3C65 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */; };
 		49BD279F288319D8000E8766 /* APODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD279E288319D8000E8766 /* APODView.swift */; };
 		49CAB053288ADB1D0006A0F0 /* ZoomableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */; };
@@ -34,18 +34,19 @@
 		49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9B52843AA0B00664977 /* NetworkingManager.swift */; };
 		49D0D9C02843C3C300664977 /* NasaInstanceOfTheDayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */; };
 		49D0D9C22843C7BD00664977 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C12843C7BD00664977 /* APOD.swift */; };
-		49D0D9C62844059400664977 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C52844059400664977 /* UITextField+Extension.swift */; };
+		49D0D9C62844059400664977 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D0D9C52844059400664977 /* UITextField + Extension.swift */; };
+		49FBF39A2897DC58002CDED1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FBF3992897DC58002CDED1 /* ImageLoader.swift */; };
 		DC68B20F284281440035C887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B20E284281440035C887 /* AppDelegate.swift */; };
 		DC68B211284281440035C887 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B210284281440035C887 /* SceneDelegate.swift */; };
 		DC68B213284281440035C887 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B212284281440035C887 /* MainViewController.swift */; };
 		DC68B218284281460035C887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC68B217284281460035C887 /* Assets.xcassets */; };
 		DC68B2232842A2300035C887 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2222842A2300035C887 /* SearchViewController.swift */; };
-		DC68B2252842A26E0035C887 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2242842A26E0035C887 /* FavouritesViewController.swift */; };
+		DC68B2252842A26E0035C887 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2242842A26E0035C887 /* FavoritesViewController.swift */; };
 		DC68B2272842A2970035C887 /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2262842A2970035C887 /* CentralViewController.swift */; };
 		DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B2282842A2D00035C887 /* AboutViewController.swift */; };
 		DC68B22B2842A3050035C887 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B22A2842A3050035C887 /* SettingsViewController.swift */; };
 		DC68B22E2842A3660035C887 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68B22D2842A3660035C887 /* AppConstants.swift */; };
-		DC6C7CAB2893FA0200A94237 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */; };
+		DC6C7CAB2893FA0200A94237 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C7CAA2893FA0200A94237 /* UIImageView + Extension.swift */; };
 		DC7E6CAC2893F6A400A53F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -56,16 +57,16 @@
 		4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAVProgressHud.swift; sourceTree = "<group>"; };
 		4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCellViewModel.swift; sourceTree = "<group>"; };
 		4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODsCollectionCell.swift; sourceTree = "<group>"; };
-		495420CC2890A24600A68BF0 /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		495420CC2890A24600A68BF0 /* SavedUserPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUserPrefs.swift; sourceTree = "<group>"; };
 		4969705D2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = APODCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		496970632886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APODInstance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		496970642886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APODInstance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		496970672886AF7700F8D8C5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		496970692886AFAE00F8D8C5 /* MainStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStorageManager.swift; sourceTree = "<group>"; };
-		4969706D2887403100F8D8C5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
-		4969706F2887407000F8D8C5 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
-		496970732888496F00F8D8C5 /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
-		4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4969706D2887403100F8D8C5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		4969706F2887407000F8D8C5 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		496970732888496F00F8D8C5 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		4969707528886BE700F8D8C5 /* FavoritesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		49BD279E288319D8000E8766 /* APODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODView.swift; sourceTree = "<group>"; };
 		49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableDetailViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +78,8 @@
 		49D0D9B52843AA0B00664977 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		49D0D9BF2843C3C300664977 /* NasaInstanceOfTheDayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaInstanceOfTheDayAPI.swift; sourceTree = "<group>"; };
 		49D0D9C12843C7BD00664977 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
-		49D0D9C52844059400664977 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		49D0D9C52844059400664977 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		49FBF3992897DC58002CDED1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		DC68B20B284281440035C887 /* APOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC68B20E284281440035C887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC68B210284281440035C887 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,12 +87,12 @@
 		DC68B217284281460035C887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC68B21C284281460035C887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Utilities/Info.plist; sourceTree = SOURCE_ROOT; };
 		DC68B2222842A2300035C887 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		DC68B2242842A26E0035C887 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		DC68B2242842A26E0035C887 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DC68B2262842A2970035C887 /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
 		DC68B2282842A2D00035C887 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DC68B22A2842A3050035C887 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DC68B22D2842A3660035C887 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		DC6C7CAA2893FA0200A94237 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,72 +110,20 @@
 		490ED57B288979C9002D47E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49CAB051288AAC8D0006A0F0 /* Cell */,
 				49BD279E288319D8000E8766 /* APODView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4952C7AB287B6361002C5182 /* AboutViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DC68B2282842A2D00035C887 /* AboutViewController.swift */,
+				4952C7AF287C4A83002C5182 /* SearchView.swift */,
+				4969706D2887403100F8D8C5 /* FavoritesView.swift */,
 				4952C7A9287B470D002C5182 /* AboutSwiftUIView.swift */,
 			);
-			path = AboutViewController;
-			sourceTree = "<group>";
-		};
-		4952C7AE287C4828002C5182 /* SearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4952C7BB287C6041002C5182 /* Cell */,
-				4952C7AF287C4A83002C5182 /* SearchView.swift */,
-				DC68B2222842A2300035C887 /* SearchViewController.swift */,
-				4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */,
-			);
-			path = SearchViewController;
-			sourceTree = "<group>";
-		};
-		4952C7BB287C6041002C5182 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */,
-				4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		49BD279B288318BA000E8766 /* CentralViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DC68B2262842A2970035C887 /* CentralViewController.swift */,
-			);
-			path = CentralViewController;
-			sourceTree = "<group>";
-		};
-		49BD279C288318C9000E8766 /* FavouritesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				49CAB051288AAC8D0006A0F0 /* Cell */,
-				4969706D2887403100F8D8C5 /* FavouritesView.swift */,
-				DC68B2242842A26E0035C887 /* FavouritesViewController.swift */,
-				4969706F2887407000F8D8C5 /* FavouritesViewModel.swift */,
-			);
-			path = FavouritesViewController;
-			sourceTree = "<group>";
-		};
-		49BD279D288318DC000E8766 /* SettingsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DC68B22A2842A3050035C887 /* SettingsViewController.swift */,
-			);
-			path = SettingsViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49CAB051288AAC8D0006A0F0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4969707528886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift */,
-				496970732888496F00F8D8C5 /* FavouritesTableViewCell.swift */,
+				49FBF3982897DB2D002CDED1 /* SearchViewCell */,
+				49FBF3972897DB11002CDED1 /* FavoritesViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -192,12 +142,55 @@
 			path = NetworkingManager;
 			sourceTree = "<group>";
 		};
+		49FBF3962897DA96002CDED1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49D0D9C12843C7BD00664977 /* APOD.swift */,
+				4952C7B1287C4AA1002C5182 /* SearchViewModel.swift */,
+				4969706F2887407000F8D8C5 /* FavoritesViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49FBF3972897DB11002CDED1 /* FavoritesViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4969707528886BE700F8D8C5 /* FavoritesTableViewCellViewModel.swift */,
+				496970732888496F00F8D8C5 /* FavoritesTableViewCell.swift */,
+			);
+			path = FavoritesViewCell;
+			sourceTree = "<group>";
+		};
+		49FBF3982897DB2D002CDED1 /* SearchViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4952C7B7287C602C002C5182 /* APODsCellViewModel.swift */,
+				4952C7B9287C6038002C5182 /* APODsCollectionCell.swift */,
+			);
+			name = SearchViewCell;
+			sourceTree = "<group>";
+		};
+		49FBF39B2897DDA7002CDED1 /* TabBarViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC68B2222842A2300035C887 /* SearchViewController.swift */,
+				DC68B2242842A26E0035C887 /* FavoritesViewController.swift */,
+				DC68B2262842A2970035C887 /* CentralViewController.swift */,
+				DC68B22A2842A3050035C887 /* SettingsViewController.swift */,
+			);
+			path = TabBarViewControllers;
+			sourceTree = "<group>";
+		};
 		DC616D8A2893E7FC00DF5793 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DC68B22D2842A3660035C887 /* AppConstants.swift */,
+				495420CC2890A24600A68BF0 /* SavedUserPrefs.swift */,
 				DC68B217284281460035C887 /* Assets.xcassets */,
 				DC68B20E284281440035C887 /* AppDelegate.swift */,
 				DC68B210284281440035C887 /* SceneDelegate.swift */,
+				4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */,
+				49FBF3992897DC58002CDED1 /* ImageLoader.swift */,
 				DC68B21C284281460035C887 /* Info.plist */,
 				DC7E6CAB2893F6A300A53F33 /* LaunchScreen.storyboard */,
 			);
@@ -220,11 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				DC6C7CA92893F7DC00A94237 /* Extentions */,
-				DC68B20D284281440035C887 /* APOD */,
 				DC616D8B2893E8C700DF5793 /* CoreData */,
+				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
+				49FBF3962897DA96002CDED1 /* Model */,
 				490ED57B288979C9002D47E6 /* View */,
 				DC68B22C2842A3370035C887 /* ViewControllers */,
-				49D0D9BC2843AA2A00664977 /* NetworkingManager */,
 				DC616D8A2893E7FC00DF5793 /* Utilities */,
 				DC68B20C284281440035C887 /* Products */,
 			);
@@ -238,28 +231,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC68B20D284281440035C887 /* APOD */ = {
-			isa = PBXGroup;
-			children = (
-				49D0D9C12843C7BD00664977 /* APOD.swift */,
-				4952C7B5287C5E42002C5182 /* CAVProgressHud.swift */,
-				DC68B22D2842A3660035C887 /* AppConstants.swift */,
-				495420CC2890A24600A68BF0 /* Prefs.swift */,
-			);
-			path = APOD;
-			sourceTree = "<group>";
-		};
 		DC68B22C2842A3370035C887 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DC68B212284281440035C887 /* MainViewController.swift */,
 				499FDE4B287DACCB00AB3C65 /* DetailsViewController.swift */,
 				49CAB052288ADB1D0006A0F0 /* ZoomableDetailViewController.swift */,
-				4952C7AE287C4828002C5182 /* SearchViewController */,
-				49BD279C288318C9000E8766 /* FavouritesViewController */,
-				49BD279B288318BA000E8766 /* CentralViewController */,
-				4952C7AB287B6361002C5182 /* AboutViewController */,
-				49BD279D288318DC000E8766 /* SettingsViewController */,
+				DC68B2282842A2D00035C887 /* AboutViewController.swift */,
+				49FBF39B2897DDA7002CDED1 /* TabBarViewControllers */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,8 +246,8 @@
 		DC6C7CA92893F7DC00A94237 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				49D0D9C52844059400664977 /* UITextField+Extension.swift */,
-				DC6C7CAA2893FA0200A94237 /* UIImageView+Extension.swift */,
+				49D0D9C52844059400664977 /* UITextField + Extension.swift */,
+				DC6C7CAA2893FA0200A94237 /* UIImageView + Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -346,35 +325,36 @@
 				49CAB053288ADB1D0006A0F0 /* ZoomableDetailViewController.swift in Sources */,
 				4952C7B2287C4AA1002C5182 /* SearchViewModel.swift in Sources */,
 				49D0D9B92843AA0B00664977 /* NasaJSONsAPI.swift in Sources */,
-				495420CD2890A24600A68BF0 /* Prefs.swift in Sources */,
+				495420CD2890A24600A68BF0 /* SavedUserPrefs.swift in Sources */,
 				49D0D9B72843AA0B00664977 /* API.swift in Sources */,
 				4952C7BA287C6038002C5182 /* APODsCollectionCell.swift in Sources */,
 				DC68B213284281440035C887 /* MainViewController.swift in Sources */,
 				49D0D9BB2843AA0B00664977 /* NetworkingManager.swift in Sources */,
 				DC68B20F284281440035C887 /* AppDelegate.swift in Sources */,
 				DC68B211284281440035C887 /* SceneDelegate.swift in Sources */,
-				496970742888496F00F8D8C5 /* FavouritesTableViewCell.swift in Sources */,
+				496970742888496F00F8D8C5 /* FavoritesTableViewCell.swift in Sources */,
 				4969706A2886AFAE00F8D8C5 /* MainStorageManager.swift in Sources */,
 				4952C7AA287B470D002C5182 /* AboutSwiftUIView.swift in Sources */,
 				496970682886AF7700F8D8C5 /* CoreDataStack.swift in Sources */,
 				DC68B2292842A2D00035C887 /* AboutViewController.swift in Sources */,
-				49D0D9C62844059400664977 /* UITextField+Extension.swift in Sources */,
-				DC6C7CAB2893FA0200A94237 /* UIImageView+Extension.swift in Sources */,
+				49D0D9C62844059400664977 /* UITextField + Extension.swift in Sources */,
+				DC6C7CAB2893FA0200A94237 /* UIImageView + Extension.swift in Sources */,
 				496970662886AE5100F8D8C5 /* APODInstance+CoreDataProperties.swift in Sources */,
 				49D0D9C22843C7BD00664977 /* APOD.swift in Sources */,
-				4969707628886BE700F8D8C5 /* FavouritesTableViewCellViewModel.swift in Sources */,
+				4969707628886BE700F8D8C5 /* FavoritesTableViewCellViewModel.swift in Sources */,
 				496970652886AE5100F8D8C5 /* APODInstance+CoreDataClass.swift in Sources */,
-				4969706E2887403100F8D8C5 /* FavouritesView.swift in Sources */,
+				4969706E2887403100F8D8C5 /* FavoritesView.swift in Sources */,
 				499FDE4C287DACCB00AB3C65 /* DetailsViewController.swift in Sources */,
 				4952C7B0287C4A83002C5182 /* SearchView.swift in Sources */,
+				49FBF39A2897DC58002CDED1 /* ImageLoader.swift in Sources */,
 				DC68B22B2842A3050035C887 /* SettingsViewController.swift in Sources */,
 				4952C7B8287C602C002C5182 /* APODsCellViewModel.swift in Sources */,
 				4952C7B6287C5E42002C5182 /* CAVProgressHud.swift in Sources */,
-				DC68B2252842A26E0035C887 /* FavouritesViewController.swift in Sources */,
+				DC68B2252842A26E0035C887 /* FavoritesViewController.swift in Sources */,
 				DC68B2272842A2970035C887 /* CentralViewController.swift in Sources */,
 				49D0D9B82843AA0B00664977 /* HTTPScheme.swift in Sources */,
 				49D0D9BA2843AA0B00664977 /* NetworkingError.swift in Sources */,
-				496970702887407000F8D8C5 /* FavouritesViewModel.swift in Sources */,
+				496970702887407000F8D8C5 /* FavoritesViewModel.swift in Sources */,
 				4969705E2886AB9300F8D8C5 /* APODCoreDataModel.xcdatamodeld in Sources */,
 				49BD279F288319D8000E8766 /* APODView.swift in Sources */,
 				DC68B2232842A2300035C887 /* SearchViewController.swift in Sources */,
