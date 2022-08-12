@@ -1,5 +1,5 @@
 # APOD
-![Logo](/APOD/Utilities/Assets.xcassets/AppIcon.appiconset/180.png)
+![Logo](/Utilities/Assets.xcassets/AppIcon.appiconset/180.png)
 
 ##### My project for TeachMeSkills
 
