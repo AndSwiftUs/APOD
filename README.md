@@ -1,11 +1,10 @@
-# APOD
+# APOD (Astronomic Picture Of the Day)
 
+## ❌   The project is deprecated   ❌ ##
 
-## Deprecated ##
+## See YA-APOD-SUI: Yet Another NASA Astronomic Picture Of the Day written on SwiftUI ##
 
-## See YA-APOD-SUI: Yet Another Astronomic Picture Of the Day written on SwiftUI ##
-
-https://github.com/AndSwiftUs/YA-APOD-SUI
+👉🏼 https://github.com/AndSwiftUs/YA-APOD-SUI
 
 ------------------------------------------
 
