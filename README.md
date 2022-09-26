@@ -1,4 +1,16 @@
 # APOD
+
+
+## Deprecated ##
+
+## See YA-APOD-SUI: Yet Another Astronomic Picture Of the Day written on SwiftUI ##
+
+https://github.com/AndSwiftUs/YA-APOD-SUI
+
+------------------------------------------
+
+Old version on UIKit is here.
+
 ![Logo](/Utilities/Assets.xcassets/AppIcon.appiconset/180.png)
 
 ##### My project for TeachMeSkills
